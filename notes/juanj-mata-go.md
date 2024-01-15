@@ -1,117 +1,79 @@
 ---
 title: juanj-mata-go
 created: '2024-01-14T15:21:23.680Z'
-modified: '2024-01-15T00:25:44.401Z'
+modified: '2024-01-15T02:44:12.262Z'
 ---
 
----
+<div style="page-break-after: always;"></div>
 
 # GO
----
 
 [//]: # (version: 1.0)
 [//]: # (author: Juan José Mata)
 [//]: # (date: 2024-01-14)
 
+---
 # Indice
+- [GO](#go)
 - [Indice](#indice)
-
 - [Introducción](#introducción)
-  - [Historia de GO](#historia)
-  - [¿Que es GO? Caracteristicas](#caracteristicas)
-
+  - [Historia de GO](#historia-de-go)
+    - [Que es GO y sus caracteristicas](#que-es-go-y-sus-caracteristicas)
 - [Instalación](#instalación)
-  - [Instalación de GO](#instalación)
-    - [Instalación en Windows](#instalación)
-    - [Instalación en Linux](#instalación)
-    - [Instalación en MacOS](#seccion1)
-  - [Instalación del IDE Visual Studio Code](#capitulo-2)
-    - [Instalación en Windows](#subapartado-21)
-    - [Instalación en Linux](#subapartado-21)
-    - [Instalación en MacOS](#subapartado-21)
-    - [Extensiones recomendadas](#subapartado-21)
-
-- [El primer Hola Mundo](#capitulo-3)
-
-- [Conceptos basicos](#seccion1-1)
-  - [Paquetes e importaciones](#capitulo-3)
-    - [Convencion de nomenclaturas](#seccion1-1)
-    - [Comentarios](#seccion2)
-    - [Strings](#seccion21)
-
-  - [Tipos de datos](#seccion21)
-    - [Enteros](#capitulo-3)
-    - [Flotantes](#seccion1-1)
-    - [Booleanos](#seccion2)
-    - [Strings](#seccion21) 
-  - [Operadores](#seccion21)
-    - [Operadores aritméticos](#capitulo-3)
-    - [Operadores logísticos](#seccion1-1)
-    - [Operadores de comparación](#seccion2)
-
-  - [Tipos de datos](#seccion21)
-    - [Enteros](#capitulo-3)
-    - [Flotantes](#seccion1-1)
-    - [Booleanos](#seccion2)
-    - [Strings](#seccion21)
-  
-- [Variables](#seccion2)
-  - [Asignacion y reasignacion](#seccion1-1)
-  - [Variables según su ambito](#seccion1-1)
-    - [Variables locales](#seccion21)
-    - [Variables Globales](#capitulo-3)
-    - [Constantes](#seccion2)
+  - [Instalación de GO](#instalación-de-go)
+    - [Instalación en Windows](#instalación-en-windows)
+    - [Instalación en Linux](#instalación-en-linux)
+    - [Instalación en MacOS](#instalación-en-macos)
+  - [Instalación del IDE Visual Studio Code](#instalación-del-ide-visual-studio-code)
+    - [Instalación en Windows](#instalación-en-windows-1)
+    - [Instalación en Linux](#instalación-en-linux-1)
+    - [Instalación en MacOS](#instalación-en-macos-1)
+    - [Extensiones recomendadas](#extensiones-recomendadas)
+- [Hola Mundo](#hola-mundo)
+- [Conceptos basicos](#conceptos-basicos)
+  - [Paquetes e importaciones](#paquetes-e-importaciones)
+  - [Convención de nomenclaturas](#convención-de-nomenclaturas)
+  - [Comentarios](#comentarios)
+  - [Tipos de datos](#tipos-de-datos)
+    - [Enteros](#enteros)
+    - [Flotantes](#flotantes)
+    - [Booleanos](#booleanos)
+    - [Strings](#strings)
+  - [Operadores](#operadores)
+    - [Operadores aritméticos](#operadores-aritméticos)
+    - [Operadores logísticos](#operadores-logísticos)
+    - [Operadores de comparación](#operadores-de-comparación)
+- [Variables](#variables)
+  - [Inicializar y reasignación](#inicializar-y-reasignación)
+  - [Variables según su ambito](#variables-según-su-ambito)
+    - [Variables locales](#variables-locales)
+    - [Variables globales](#variables-globales)
+- [Constantes](#constantes)
+- [Arrays](#arrays)
+- [Estructuras de control](#estructuras-de-control)
+  - [Condicionales](#condicionales)
+    - [If, else y else if](#if-else-y-else-if)
+    - [Switch](#switch)
+  - [Bucles](#bucles)
+    - [While y do while](#while-y-do-while)
+    - [For](#for)
+  - [GOTO](#goto)
+- [Funciones](#funciones)
+- [Structs](#structs)
+- [Programación orientada a objetos (POO)](#programación-orientada-a-objetos-poo)
+- [CRUD](#crud)
+  - [Capitulo 2](#capitulo-2)
+    - [Subapartado 2.1](#subapartado-21)
+  - [Capitulo 3](#capitulo-3)
+    - [Seccion1](#seccion1)
+    - [Seccion2](#seccion2)
       - [Seccion2.1](#seccion21)
-      - [Capitulo 3](#capitulo-3)
 
-- [Constantes](#seccion2)
-  - [Tipos según su ambito](#seccion1-1)
-    - [Variables locales](#seccion21)
-    - [Variables Globales](#capitulo-3)
-    - [Constantes](#seccion2)
-      - [Seccion2.1](#seccion21)
-      - [Capitulo 3](#capitulo-3)
-
-- [Estructuras de control](#seccion1-1)
-  - [Condicionales](#seccion2)
-    - [If, Else y Else if](#seccion21)
-    - [Switch](#seccion1-1)
-  - [Bucles](#seccion2)
-    - [For](#seccion21)
-    - [While y do-while](#seccion1-1)
-  - [GOTO](#seccion2)
-
-  - [Arrays](#seccion2)
-    - [Seccion2.1](#seccion21)
-    - [Estructuras de control](#seccion1-1)
-
-  - [Structs](#seccion2)
-    - [Seccion2.1](#seccion21)
-    - [Estructuras de control](#seccion1-1)
-
-  - [POO](#seccion2)
-    - [Seccion2.1](#seccion21)
-    - [Estructuras de control](#seccion1-1)
-
-  - [Funciones](#seccion2)
-    - [Seccion2.1](#seccion21)
-    - [Estructuras de control](#seccion1-1)
-
-  - [CRUD](#seccion2)
-    - [Seccion2.1](#seccion21)
-    - [Estructuras de control](#seccion1-1)
-
-  - [Seccion2](#seccion2)
-    - [Seccion2.1](#seccion21)
-    - [Estructuras de control](#seccion1-1)
-  - [Seccion2](#seccion2)
-    - [Seccion2.1](#seccion21)
-
-
-[Sección2.2](#s22)
-
-## Introducción
+---
+# Introducción
 [Volver al indice](#indice)
+
+## Historia de GO
 
 La compañía Google, conocida por dar múltiples servicios en internet, como puede ser su famoso buscador [www.google.es](www.google.es), es una empresa que maneja una gran variedad de proyectos.
 
@@ -121,14 +83,97 @@ Go nació con el objetivo de aprender y no cometer los mismos errores que comet�
 
 En la actualidad Go es usado por multitud de compañías como por ejemplo Paypal, Dropbox, Netflix, Uber, Twitch, etc, y lógicamente por su creadora, Google.
 
+### Que es GO y sus caracteristicas
 
-## Instalación
-[Tabla de contenidos](#tabla-de-contenidos)
+---
+# Instalación
+[Volver al indice](#indice)
 
-### Seccion1
-[Tabla de contenidos](#tabla-de-contenidos)
+## Instalación de GO
 
-<div style="page-break-after: always;"></div>
+### Instalación en Windows
+### Instalación en Linux
+### Instalación en MacOS
+
+## Instalación del IDE Visual Studio Code
+
+### Instalación en Windows
+### Instalación en Linux
+### Instalación en MacOS
+
+### Extensiones recomendadas
+
+---
+# Hola Mundo
+[Volver al indice](#indice)
+
+# Conceptos basicos
+## Paquetes e importaciones
+## Convención de nomenclaturas
+## Comentarios
+## Tipos de datos
+### Enteros
+### Flotantes
+### Booleanos
+### Strings
+## Operadores
+### Operadores aritméticos
+### Operadores logísticos
+### Operadores de comparación
+
+---
+# Variables
+[Volver al indice](#indice)
+
+## Inicializar y reasignación
+## Variables según su ambito
+### Variables locales
+### Variables globales
+
+---
+# Constantes
+[Volver al indice](#indice)
+
+---
+# Arrays
+[Volver al indice](#indice)
+
+---
+# Estructuras de control
+[Volver al indice](#indice)
+
+## Condicionales
+### If, else y else if
+### Switch
+
+## Bucles
+### While y do while
+### For
+
+## GOTO
+
+---
+# Funciones
+[Volver al indice](#indice)
+
+---
+# Structs
+[Volver al indice](#indice)
+
+---
+# Programación orientada a objetos (POO)
+[Volver al indice](#indice)
+
+---
+# CRUD
+[Volver al indice](#indice)
+
+---
+---
+---
+
+
+
 
 ## Capitulo 2
 [Tabla de contenidos](#tabla-de-contenidos)
