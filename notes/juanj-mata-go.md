@@ -1,7 +1,7 @@
 ---
 title: juanj-mata-go
 created: '2024-01-14T15:21:23.680Z'
-modified: '2024-01-15T02:44:12.262Z'
+modified: '2024-01-15T03:03:49.127Z'
 ---
 
 <div style="page-break-after: always;"></div>
@@ -16,6 +16,7 @@ modified: '2024-01-15T02:44:12.262Z'
 # Indice
 - [GO](#go)
 - [Indice](#indice)
+- [Enlaces de interes](#enlaces-de-interes)
 - [Introducción](#introducción)
   - [Historia de GO](#historia-de-go)
     - [Que es GO y sus caracteristicas](#que-es-go-y-sus-caracteristicas)
@@ -70,6 +71,15 @@ modified: '2024-01-15T02:44:12.262Z'
       - [Seccion2.1](#seccion21)
 
 ---
+# Enlaces de interes
+[Volver al indice](#indice)
+
+- [Web oficial](https://go.dev/)
+- [Zona de descargas](https://go.dev/dl/)
+- [Documentación oficial](https://go.dev/doc/)
+- [Wikipedia](https://es.wikipedia.org/wiki/Go_(lenguaje_de_programaci%C3%B3n))
+
+---
 # Introducción
 [Volver al indice](#indice)
 
@@ -84,6 +94,8 @@ Go nació con el objetivo de aprender y no cometer los mismos errores que comet�
 En la actualidad Go es usado por multitud de compañías como por ejemplo Paypal, Dropbox, Netflix, Uber, Twitch, etc, y lógicamente por su creadora, Google.
 
 ### Que es GO y sus caracteristicas
+
+
 
 ---
 # Instalación
