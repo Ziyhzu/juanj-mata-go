@@ -1,7 +1,7 @@
 ---
 title: juanj-mata-go
 created: '2024-01-14T15:21:23.680Z'
-modified: '2024-01-15T03:03:49.127Z'
+modified: '2024-01-15T04:11:33.016Z'
 ---
 
 <div style="page-break-after: always;"></div>
@@ -78,6 +78,8 @@ modified: '2024-01-15T03:03:49.127Z'
 - [Zona de descargas](https://go.dev/dl/)
 - [Documentación oficial](https://go.dev/doc/)
 - [Wikipedia](https://es.wikipedia.org/wiki/Go_(lenguaje_de_programaci%C3%B3n))
+- [Librerias estandar](https://pkg.go.dev/std)
+- [Ejemplos](https://gobyexample.com/)
 
 ---
 # Introducción
@@ -95,7 +97,17 @@ En la actualidad Go es usado por multitud de compañías como por ejemplo Paypal
 
 ### Que es GO y sus caracteristicas
 
+Go es un lenguaje de programación desarrollado por Google que nacio con el principal objetivo de ser un lenguaje bastante simple, pero al mismo tiempo ser muy eficiente. Este año 2024 cumple 15 años, lo que significa que en comparación con otros lenguaje de programación como C o Java, se trata de un lenguaje joven.
 
+Caracteristicas:
+
+- Simplicidad: Tiene una sintaxis clara y organizada.
+- Muy facil de usar
+- OpenSource: Es un lenguaje de codigo abierto.
+- Lenguaje compilado: El codigo fuente se compila generando codigo maquina y así ejecutar el programma.
+- Usa tipado estatico: Una vez se le asigna un tipo de dato a una variable esta ya no puede cambiar.
+- No esta orientado a objetos (POO), pero tiene formas de emularlo
+- Es multiprocesador y concurrente: Permite ejecutar multiples procesos paralelamente en cada uno de los procesadores del equipo.
 
 ---
 # Instalación
