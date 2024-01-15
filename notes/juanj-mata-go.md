@@ -1,7 +1,7 @@
 ---
 title: juanj-mata-go
 created: '2024-01-14T15:21:23.680Z'
-modified: '2024-01-15T04:11:33.016Z'
+modified: '2024-01-15T04:42:06.899Z'
 ---
 
 <div style="page-break-after: always;"></div>
@@ -115,21 +115,140 @@ Caracteristicas:
 
 ## Instalación de GO
 
+Go se puede instalar en cualquier sistema operativo. Accede a [la zona de descargas](https://go.dev/dl/) de la web oficial de GO.
+
+Una vez en la zona de descargas tienes disponible la sección “Featured downloads” en la cual aparecen los paquetes de instalación de los sistemas operativos con sus arquitecturas más comunes.
+
+También está la sección “Stable versions” donde se encuentra un listado completo de paquetes de instalación en sus últimas versiones estables organizados por sistema operativo y por arquitecturas.
+
+Si en la sección “featured downloads” no aparece el paquete que coincida con tu sistema operativo y arquitectura, en la sección “Stable versions” lo encontraras.
+
+Por último, está la sección “Unstable versión” donde puedes descargar los paquetes de instalación de versiones no estables (No recomendado).
+
+En el momento de hacer esta documentación (enero del 2024) la versión estable mas actualizada es la 1.21.6.
+
 ### Instalación en Windows
+
+En Windows la forma de instalar GO es muy simple. En la zona de descargas de la pagina web oficial de GO debes  [descargar el paquete de Windows](https://go.dev/dl/go1.21.6.windows-amd64.msi) y ejecutarlo para iniciar la instalación.
+
+El proceso de instalación se resume en pulsar “siguiente” en las pantallas por lo que no tiene ninguna dificultad.
+
+Una vez finalizada la instalación puedes confirmar que esta se ha realizado correctamente abriendo una consola CMD y ejecutando el comando:
+
+```console
+go versión
+```
+
+Debería aparecer un mensaje indicándote la versión instalada, que en este caso debería ser la 1.21.6.
+
 ### Instalación en Linux
+
+Para instalar Go en linux abre una consola de comandos y ejecuta los siguientes comandos:
+
+```console
+# Te situas en la carpeta de descargas
+cd Descargas
+# Descargas el paquete de instalación
+wget https://go.dev/dl/go1.21.6.linux-amd64.tar.gz
+# Copias el paquete en la ruta /usr/local
+sudo cp go1.21.6.linux.amd64.tar.gz /usr/local
+# Te situas en la carpeta /usr/local
+cd ~
+cd /usr/local
+# Creas la carpeta GO y descomprimes en ella el paquete
+sudo rm -rf /usr/local/go && sudo tar -C /usr/local -xzf go1.21.6.linux-amd64.tar.gz
+```
+
+El siguiente paso es añadir acceso de variable de global:
+
+```console
+export PATH=$PATH:/usr/local/go/bin
+```
+
+Para confirmar que se ha añadido correctamente ejecutamos el siguiente comando:
+
+```console
+echo $PATH
+```
+
+Si aparece “/usr/local/go/bin” significa que funcionó correctamente.
+
+Finalmente, para confirmar que GO esta instalado, ejecuta el comando:
+
+```console
+go versión
+```
+
+Debería aparecer un mensaje indicando la versión instalada, que en este caso debería ser la 1.21.6.
+
+
 ### Instalación en MacOS
+
+Para instalar GO en un equipo con MacOS puedes usar el mismo método que con el sistema operativo Windows.
+
+En la zona de descargas de la página web oficial de GO descargas el [paquete de instalación de MacOS para ARM64](https://go.dev/dl/go1.21.6.darwin-arm64.pkg) o [el paquete de instalación de MacOS para x86-64](https://go.dev/dl/go1.21.6.darwin-amd64.pkg) y lo ejecutas para iniciar la instalación.
+
+El proceso de instalación se resume en pulsar “siguiente” en las pantallas por lo que no tiene ninguna dificultad.
+
+Una vez finalizada la instalación puedes confirmar que esta se ha realizado correctamente abriendo una consola CMD y ejecutando el comando:
+
+```console
+go versión
+```
+
+Debería aparecer un mensaje indicándote la versión instalada, que en este caso debería ser la 1.21.6.
+
 
 ## Instalación del IDE Visual Studio Code
 
+Para empezar a programar con GO primero debemos decidir que Entorno de desarrollo (IDE) vamos a usar. Existe un IDE llamado GoLand (https://www.jetbrains.com/go/) el cual fue creado en exclusiva para ser usado junto con Go, pero por desgracia se trata de un IDE de pago.
+Existen muchas opciones, pero el IDE mas usado en la actualidad y que además es compatible con GO es Visual Studio Code, por lo que es el que recomiendo.
+
+
 ### Instalación en Windows
+
+Para instalar Visual Studio Code debes acceder a la zona de descargas de su pagina web oficial https://code.visualstudio.com/Download, pulsar en el botón donde pone “Windows” y descargar el paquete de instalación. En el momento de realizar esta documentación la versión mas actualizada es la 1.85 https://code.visualstudio.com/sha/download?build=stable&os=win32-x64-user
+Una vez descargado debes ejecutar el paquete de instalación. El proceso de instalación se resume en pulsar “siguiente” en las pantallas por lo que no tiene ninguna dificultad. 
+
 ### Instalación en Linux
+
+Abre una consola de comandos y ejecuta los siguientes comandos
+sudo apt update
+sudo apt install software-properties-common apt-transport-https wget
+wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | sudo apt-key add -
+sudo add-apt-repository "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
+sudo apt install code
+
+
 ### Instalación en MacOS
 
+Para instalar Visual Studio Code debes acceder a la zona de descargas de su página web oficial https://code.visualstudio.com/Download, pulsar en el botón donde pone “Mac” y descargar el paquete de instalación. En el momento de realizar esta documentación la versión mas actualizada es la 1.85 https://code.visualstudio.com/sha/download?build=stable&os=darwin-universal 
+Una vez descargado debes ejecutar el paquete de instalación. El proceso de instalación se resume en pulsar “siguiente” en las pantallas por lo que no tiene ninguna dificultad.
+
+
 ### Extensiones recomendadas
+
+Una vez tengas instalado el IDE Visual Studio Code, lo primero que harás es ir a la sección de extensiones (Control + Mayus + X), escribir “go” e instalar la primera extensión que nos aparece. La extensión “GO” añadirá funciones extras a Visual Studio Code cuando estes programando con el lenguaje GO, como por ejemplo IntelliSense.
+Si tras la instalación de la extensión” go” o cuando empieces a generar tus primeros códigos de GO aparece en la esquina de abajo a la derecha algún mensaje indicándote que hace falta instalar alguna extensión extra, no lo dudes y pulsa el botón instalar ya que te hará falta. 
+También sería recomendable que instalaras la extensión “Spanish Languaje Pack for Visual Studio Code” para que tengas el IDE en español.
+
 
 ---
 # Hola Mundo
 [Volver al indice](#indice)
+
+Como suele ser común con todos los lenguajes de programación, el primer código que probaras será el famoso “Hola Mundo”. Para ello lo primero será crear una carpeta en el directorio que tú quieras de tu ordenador, teniendo en cuenta que esa carpeta será donde vas a guardar tus proyectos en GO. Una vez creada la carpeta, en Visual Studio Code debes ir a “Archivo > Agregar carpeta al área de trabajo” y seleccionar la carpeta que acabas de crear. Lo siguiente será crear un archivo dentro de la carpeta, al que llamaremos “HolaMundo.go”
+Para generar el primer Hola Mundo debes escribir el siguiente código:
+
+package main
+
+import "fmt"
+
+func main() {
+    fmt.Println("Hola mundo")
+}
+
+Para ejecutarlo debes pulsar el botón “Run code” que se encuentra en la parte superior derecha de Visual Studio Code, o usar el atajo de teclado Control + Alt + N. El resultado será que se muestre por pantalla el mensaje “Hola mundo”.
 
 # Conceptos basicos
 ## Paquetes e importaciones
