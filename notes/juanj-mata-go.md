@@ -1,7 +1,7 @@
 ---
 title: juanj-mata-go
 created: '2024-01-14T15:21:23.680Z'
-modified: '2024-01-15T04:42:06.899Z'
+modified: '2024-01-15T04:55:23.737Z'
 ---
 
 <div style="page-break-after: always;"></div>
@@ -201,35 +201,50 @@ Debería aparecer un mensaje indicándote la versión instalada, que en este cas
 
 ## Instalación del IDE Visual Studio Code
 
-Para empezar a programar con GO primero debemos decidir que Entorno de desarrollo (IDE) vamos a usar. Existe un IDE llamado GoLand (https://www.jetbrains.com/go/) el cual fue creado en exclusiva para ser usado junto con Go, pero por desgracia se trata de un IDE de pago.
+Para empezar a programar con GO primero debemos decidir que Entorno de desarrollo (IDE) vamos a usar.
+
+Existe un IDE llamado [GoLand](https://www.jetbrains.com/go/) el cual fue creado en exclusiva para ser usado junto con Go, pero por desgracia se trata de un IDE de pago.
+
 Existen muchas opciones, pero el IDE mas usado en la actualidad y que además es compatible con GO es Visual Studio Code, por lo que es el que recomiendo.
 
 
 ### Instalación en Windows
 
-Para instalar Visual Studio Code debes acceder a la zona de descargas de su pagina web oficial https://code.visualstudio.com/Download, pulsar en el botón donde pone “Windows” y descargar el paquete de instalación. En el momento de realizar esta documentación la versión mas actualizada es la 1.85 https://code.visualstudio.com/sha/download?build=stable&os=win32-x64-user
+Para instalar Visual Studio Code debes acceder a la [zona de descargas](https://code.visualstudio.com/Download) de su pagina web oficial , pulsar en el botón donde pone “Windows” y [descargar el paquete de instalación](https://code.visualstudio.com/sha/download?build=stable&os=win32-x64-user).
+
+En el momento de realizar esta documentación la versión mas actualizada es la 1.85.
+
 Una vez descargado debes ejecutar el paquete de instalación. El proceso de instalación se resume en pulsar “siguiente” en las pantallas por lo que no tiene ninguna dificultad. 
 
 ### Instalación en Linux
 
-Abre una consola de comandos y ejecuta los siguientes comandos
+Para realizar la instación de Visual Studio Code en linux abre una consola y ejecuta los siguientes comandos:
+
+```console
 sudo apt update
 sudo apt install software-properties-common apt-transport-https wget
 wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | sudo apt-key add -
 sudo add-apt-repository "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
 sudo apt install code
-
+```
 
 ### Instalación en MacOS
 
-Para instalar Visual Studio Code debes acceder a la zona de descargas de su página web oficial https://code.visualstudio.com/Download, pulsar en el botón donde pone “Mac” y descargar el paquete de instalación. En el momento de realizar esta documentación la versión mas actualizada es la 1.85 https://code.visualstudio.com/sha/download?build=stable&os=darwin-universal 
+Para instalar Visual Studio Code debes acceder a la [zona de descargas](https://code.visualstudio.com/Download) de su página web oficial, pulsar en el botón donde pone “Mac” y [descargar el paquete de instalación](https://code.visualstudio.com/sha/download?build=stable&os=darwin-universal).
+
+En el momento de realizar esta documentación la versión mas actualizada es la 1.85.
+
 Una vez descargado debes ejecutar el paquete de instalación. El proceso de instalación se resume en pulsar “siguiente” en las pantallas por lo que no tiene ninguna dificultad.
 
 
 ### Extensiones recomendadas
 
-Una vez tengas instalado el IDE Visual Studio Code, lo primero que harás es ir a la sección de extensiones (Control + Mayus + X), escribir “go” e instalar la primera extensión que nos aparece. La extensión “GO” añadirá funciones extras a Visual Studio Code cuando estes programando con el lenguaje GO, como por ejemplo IntelliSense.
-Si tras la instalación de la extensión” go” o cuando empieces a generar tus primeros códigos de GO aparece en la esquina de abajo a la derecha algún mensaje indicándote que hace falta instalar alguna extensión extra, no lo dudes y pulsa el botón instalar ya que te hará falta. 
+Una vez tengas instalado el IDE Visual Studio Code, lo primero que harás es ir a la sección de extensiones (Control + Mayus + X), escribir “go” e instalar la primera extensión que aparece.
+
+La extensión “GO” añadirá funciones extras a Visual Studio Code cuando estes programando con el lenguaje GO, como por ejemplo IntelliSense.
+
+Si tras la instalación de la extensión "go” o cuando empieces a generar tus primeros códigos de GO aparece en la esquina de abajo a la derecha algún mensaje indicándote que hace falta instalar alguna extensión extra, no lo dudes y pulsa el botón instalar ya que te hará falta.
+
 También sería recomendable que instalaras la extensión “Spanish Languaje Pack for Visual Studio Code” para que tengas el IDE en español.
 
 
@@ -237,9 +252,17 @@ También sería recomendable que instalaras la extensión “Spanish Languaje Pa
 # Hola Mundo
 [Volver al indice](#indice)
 
-Como suele ser común con todos los lenguajes de programación, el primer código que probaras será el famoso “Hola Mundo”. Para ello lo primero será crear una carpeta en el directorio que tú quieras de tu ordenador, teniendo en cuenta que esa carpeta será donde vas a guardar tus proyectos en GO. Una vez creada la carpeta, en Visual Studio Code debes ir a “Archivo > Agregar carpeta al área de trabajo” y seleccionar la carpeta que acabas de crear. Lo siguiente será crear un archivo dentro de la carpeta, al que llamaremos “HolaMundo.go”
+Como suele ser común con todos los lenguajes de programación, el primer código que probaras será el famoso “Hola Mundo”.
+
+Para ello lo primero será crear una carpeta en el directorio que tú quieras de tu ordenador, teniendo en cuenta que esa carpeta será donde vas a guardar tus proyectos en GO.
+
+Una vez creada la carpeta, en Visual Studio Code debes ir a “Archivo > Agregar carpeta al área de trabajo” y seleccionar la carpeta que acabas de crear.
+
+Lo siguiente será crear un archivo dentro de la carpeta, al que llamaremos “HolaMundo.go”.
+
 Para generar el primer Hola Mundo debes escribir el siguiente código:
 
+```GO
 package main
 
 import "fmt"
@@ -247,8 +270,11 @@ import "fmt"
 func main() {
     fmt.Println("Hola mundo")
 }
+```
 
-Para ejecutarlo debes pulsar el botón “Run code” que se encuentra en la parte superior derecha de Visual Studio Code, o usar el atajo de teclado Control + Alt + N. El resultado será que se muestre por pantalla el mensaje “Hola mundo”.
+Para ejecutarlo debes pulsar el botón “Run code” que se encuentra en la parte superior derecha de Visual Studio Code, o usar el atajo de teclado Control + Alt + N.
+
+El resultado será que se muestre por consola el mensaje “Hola mundo”.
 
 # Conceptos basicos
 ## Paquetes e importaciones
