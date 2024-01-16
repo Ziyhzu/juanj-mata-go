@@ -1,7 +1,7 @@
 ---
 title: juanj-mata-go
 created: '2024-01-14T15:21:23.680Z'
-modified: '2024-01-15T23:21:59.923Z'
+modified: '2024-01-16T04:01:05.346Z'
 ---
 
 <div style="page-break-after: always;"></div>
@@ -22,13 +22,13 @@ modified: '2024-01-15T23:21:59.923Z'
     - [Que es GO y sus caracteristicas](#que-es-go-y-sus-caracteristicas)
 - [Instalación](#instalación)
   - [Instalación de GO](#instalación-de-go)
-    - [Instalación en Windows](#instalación-en-windows)
-    - [Instalación en Linux](#instalación-en-linux)
-    - [Instalación en MacOS](#instalación-en-macos)
+    - [Instalación de GO en Windows](#--instalación-de-go-en-windows--)
+    - [Instalación de GO en Linux](#--instalación-de-go-en-linux--)
+    - [Instalación de GO en MacOS](#--instalación-de-go-en-macos--)
   - [Instalación del IDE Visual Studio Code](#instalación-del-ide-visual-studio-code)
-    - [Instalación en Windows](#instalación-en-windows-1)
-    - [Instalación en Linux](#instalación-en-linux-1)
-    - [Instalación en MacOS](#instalación-en-macos-1)
+    - [Instalación de VSC en Windows](#--instalación-de-vsc-en-windows--)
+    - [Instalación de VSC en Linux](#--instalación-de-vsc-en-linux--)
+    - [Instalación de VSC en MacOS](#--instalación-de-vsc-en-macos--)
     - [Extensiones recomendadas](#extensiones-recomendadas)
 - [Hola Mundo](#hola-mundo)
 - [Conceptos basicos](#conceptos-basicos)
@@ -129,7 +129,7 @@ Por último, está la sección “Unstable versión” donde puedes descargar lo
 
 En el momento de hacer esta documentación (enero del 2024) la versión estable más actualizada es la 1.21.6.
 
-### - Instalación en Windows -
+### - Instalación de GO en Windows -
 
 En Windows la forma de instalar GO es muy simple. En la zona de descargas de la página web oficial de GO debes  [descargar el paquete de Windows](https://go.dev/dl/go1.21.6.windows-amd64.msi) y ejecutarlo para iniciar la instalación.
 
@@ -143,7 +143,7 @@ go versión
 
 Debería aparecer un mensaje indicándote la versión instalada, que en este caso debería ser la 1.21.6.
 
-### - Instalación en Linux -
+### - Instalación de GO en Linux -
 
 Para instalar Go en linux abre una consola de comandos y ejecuta los siguientes comandos:
 
@@ -184,7 +184,7 @@ go versión
 Debería aparecer un mensaje indicando la versión instalada, que en este caso debería ser la 1.21.6.
 
 
-### - Instalación en MacOS -
+### - Instalación de GO en MacOS -
 
 Para instalar GO en un equipo con MacOS puedes usar el mismo método que con el sistema operativo Windows.
 
@@ -210,7 +210,7 @@ Existe un IDE llamado [GoLand](https://www.jetbrains.com/go/) el cual fue creado
 Existen muchas opciones, pero el IDE más usado en la actualidad y que además es compatible con GO es Visual Studio Code, por lo que es el que recomiendo.
 
 
-### - Instalación en Windows -
+### - Instalación de VSC en Windows -
 
 Para instalar Visual Studio Code debes acceder a la [zona de descargas](https://code.visualstudio.com/Download) de su página web oficial, pulsar en el botón donde pone “Windows” y [descargar el paquete de instalación](https://code.visualstudio.com/sha/download?build=stable&os=win32-x64-user).
 
@@ -218,7 +218,7 @@ En el momento de realizar esta documentación la versión más actualizada es la
 
 Una vez descargado debes ejecutar el paquete de instalación. El proceso de instalación se resume en pulsar “siguiente” en las pantallas por lo que no tiene ninguna dificultad.
 
-### - Instalación en Linux -
+### - Instalación de VSC en Linux -
 
 Para realizar la instalación de Visual Studio Code en linux abre una consola y ejecuta los siguientes comandos:
 
@@ -230,7 +230,7 @@ sudo add-apt-repository "deb [arch=amd64] https://packages.microsoft.com/repos/v
 sudo apt install code
 ```
 
-### - Instalación en MacOS -
+### - Instalación de VSC en MacOS -
 
 Para instalar Visual Studio Code debes acceder a la [zona de descargas](https://code.visualstudio.com/Download) de su página web oficial, pulsar en el botón donde pone “Mac” y [descargar el paquete de instalación](https://code.visualstudio.com/sha/download?build=stable&os=darwin-universal).
 
@@ -281,15 +281,112 @@ El resultado será que se muestre por consola el mensaje “Hola mundo”.
 # Conceptos basicos
 [Volver al indice](#indice)
 
+Ya sabes que es GO y tienes listo el entorno para empezar a usarlo, pero antes es importante entender unos conceptos básicos.
 
 ## Paquetes e importaciones
+
+Los programas escritos en lenguaje GO se organizan en paquetes que ayudan a gestionar y modular el código. Cada archivo .go que creemos debe tener en su primera línea de código el nombre del paquete al que pertenece.
+
+Siempre que empecemos un proyecto en GO el primer documento .go que creemos será el paquete principal main
+
+```go
+package main
+```
+
+Lo interesante de la organización por paquetes es que podemos importarlos a otros documento GO. El lenguaje de programación GO cuenta con bastantes paquetes estándar que ya vienen incluidos en el propio instalador que también puedes ser importados. Por ejemplo, podemos importar el paquete fmt que nos permitiría escribir textos en consola.
+
+```go
+import "fmt"
+```
+
 ## Convención de nomenclaturas
+
+Cuando hablamos de convención de nomenclaturas nos estamos refiriendo a que los programadores siguen unas reglas de escritura de código que ayuda a que, por ejemplo, en caso de que otra persona tenga que utilizar tu código, le sea más fácil de entender.
+- Los nombres de los paquetes deben ser cortos, no usar guiones y evitar mezclar mayúsculas y minúsculas.
+- Los nombres de las variables y funciones deben ser camelCase (palabras juntas, sin espacios ni guiones, la primera letra de cada palabra en mayúscula excepto la primera. Ejemplo: miNuevaVariable)
+
 ## Comentarios
+
+Los comentarios son líneas de código que los programadores que revisen directamente el código podrán ver, pero que una vez el programa se compile y ejecute, serán ignoradas.
+
+El objetivo de escribir comentarios es dejar explicado el funcionamiento del código. Usar comentarios está considerado como una muy buena práctica.
+
+No solo es útil por si en un futuro otro programador tiene que revisar tu código, si no que si pasado un tiempo tienes que revisar tu propio código te ayudara a recordar de una manera rápida y simple que hacía cada cosa.
+
+```go
+# Comentario en línea
+//Esto es un comentario de línea
+```
+```go
+# Comentario en bloque
+/*Esto es un comentario
+en bloque de varias lineas */
+```
+
 ## Tipos de datos
+
+Durante la creación del código estarás obligado a usar distintos tipos de datos. Es importante entender todos los tipos de datos que existen y siempre que sea posible usar el tipo que mejor se adapte a la situación
+
 ### - Enteros -
+
+El tipo de dato entero sería lo que comúnmente conocemos como un número normal. (1, 2 3, etc).
+
+Los tipos de datos enteros que existen son: int8, int16, int32, int64, uint8, uint16, uint32 y uint64.
+
+Cada uno de ellos ocupa una cierta capacidad de espacio en memoria y cuanto más ocupe, más alto será el rango de valores que permite manejar.
+
+| Tipo    | Tamaño  | Rango                                      |
+|---------|---------|--------------------------------------------|
+| int8    | 1 byte  | -128 to 127                                |
+| int16   | 2 bytes | -32,768 to 32,767                          |
+| int32   | 4 bytes | -2,147,483,648 to 2,147,483,647            |
+| int64   | 8 bytes | -9,223,372,036,854,775,808 to 9,223,372,036,854,775,807 |
+| uint8   | 1 byte  | 0 to 255                                   |
+| uint16  | 2 bytes | 0 to 65,535                                |
+| uint32  | 4 bytes | 0 to 4,294,967,295                         |
+| uint64  | 8 bytes | 0 to 18,446,744,073,709,551,615            |
+
+Por convenio se usa siempre (salvo casos muy puntuales) el tipo int
+
+```go
+var x int = 10
+```
+
+| Tipo | Tamaño  | Rango                                                       |
+|------|---------|-------------------------------------------------------------|
+| int  | Variable| Depende de la arquitectura del sistema (32 o 64 bits)       |
+
 ### - Flotantes -
+
+El tipo de dato flotante sería lo que comúnmente conocemos como un número decimal. (1.5, 2.8, etc).
+
+Los tipos de datos flotantes que existen son: float32 y float64.
+
+Cada uno de ellos ocupa una cierta capacidad de espacio en memoria y cuanto más ocupe, más alto será el rango de valores que permite manejar.
+
+| Tipo     | Tamaño  | Rango                                                        |
+|----------|---------|--------------------------------------------------------------|
+| float32  | 4 bytes | -3.4028234663852886e+38 to 3.4028234663852886e+38          |
+| float64  | 8 bytes | -1.7976931348623157e+308 to 1.7976931348623157e+308        |
+
+El más usado por regla general es el tipo float64
+
 ### - Booleanos -
+
+El tipo de dato booleano se usa para almacenar un valor lógico true (verdadero) o false (falso).
+
+```go
+var esVerdadero bool = true
+```
+
 ### - Strings -
+
+El tipo de dato string sería una cadena de caracteres, es decir, una secuencia de caracteres Unicode.
+
+```go
+var miCadena string = "Hola, mundo!"
+```
+
 ## Operadores
 ### - Operadores aritméticos -
 ### - Operadores logísticos -
