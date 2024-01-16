@@ -1,7 +1,7 @@
 ---
 title: juanj-mata-go
 created: '2024-01-14T15:21:23.680Z'
-modified: '2024-01-16T04:01:05.346Z'
+modified: '2024-01-16T05:07:59.902Z'
 ---
 
 <div style="page-break-after: always;"></div>
@@ -389,8 +389,100 @@ var miCadena string = "Hola, mundo!"
 
 ## Operadores
 ### - Operadores aritméticos -
+
+Los operadores aritméticos son aquellos que permiten realizar operaciones matemáticas entre números.
+
+- Suma (+): Permite sumar dos valores
+```go
+resultado = 5 + 3 // resultado será 8
+```
+
+- Resta (-): Permite restar el segundo valor al primero
+```go
+resultado = 5 - 3 // resultado será 2
+```
+
+- Multiplicación (*): Permite multiplicar dos valores
+```go
+go versión
+```
+
+resultado = 5 * 3  // resultado será 15
+
+- Division (/): Permite dividir el primer valor por el segundo
+```go
+resultado = 10 / 2 // resultado será 5
+```
+
+- Modulo (%): El resultado es el resto de la division del primer valor por el segundo
+```go
+resultado = 10 % 3 // resultado será 1
+```
+
+- Incremento (+=) y decremento (-=): Realiza el incremento o decremento de un valor en la cantidad que le indiquemos.
+```go
+contador = 5
+contador += 1   // incrementa el contador en 1
+contador -= 2   // decrementa el contador en 2
+```
+
 ### - Operadores logísticos -
+
+Los operadores lógicos sirven para realizar operaciones de lógica booleana.
+
+Se coloca el operador entre dos expresiones o condiciones y se evalúa dependiendo del operador.
+
+- AND (&&): Evalúa que ambas expresiones son verdaderas, en caso de serlo devuelve verdadero y en caso contrario falso.
+Traducido al lenguaje humano significa “y”.
+```go
+resultado = (5 > 3) && (4 < 7)  // Se cumplen ambas expresiones por lo que el resultado será verdadero
+```
+
+- OR (| |): Evalúa que alguna de las expresiones sean verdaderas, en caso de serlo devuelve verdadero y en caso contrario falso. Traducido al lenguaje humano significaría “o”.
+
+
+```go
+resultado = (5 > 3) || (4 > 7)  // Se cumple al menos una expresión por lo que el resultado será verdadero
+```
+
+- NOT (!): Niega el valor real de la expresión, por lo que si él fuera una expresión verdadera devolvería falso y si fuera una expresión falsa devolvería verdadero.
+```go
+resultado = !(5 > 3)  // La expresión sería verdadera pero al negarla el resultado será falso
+```
+
 ### - Operadores de comparación -
+
+Los operadores de comparación sirven para comparar dos valores y devolver un resultado booleano dependiendo del operador.
+
+- Igual a (==): Compara dos valores y si son iguales devuelve verdadero
+```go
+resultado = (5 == 5)  // Ambos valores son iguales por lo que el resultado será verdadero
+```
+
+- Distinto a (!=): Compara dos valores y si son distintos el resultado será verdadero
+```go
+resultado = (5 != 3)  // Los valores son distintos por lo que el resultado será verdadero
+```
+
+- Mayor que (>): Compara ambos valores y si el primero es mayor que el resultado será verdadero, de lo contrario sera falso
+```go
+resultado = (5 > 3)  // El primer valor es mayor que el segundo, por lo que el resultado será verdadero
+```
+
+- Menor que (<): Compara ambos valores y si el primero es menor que el segundo el resultado será verdadero, de lo contrario será falso.
+```go
+resultado = (5 < 3)  // El primer valor es mayor que el segundo por lo que el resultado será falso
+```
+
+- Mayor o igual que (>=): Compara ambos valores y en caso de que el primero sea mayor o igual que el segundo el resultado será verdadero, de lo contrario será falso
+```go
+resultado = (5 >= 5)  // El primer valor es mayor o igual que el segundo valor por lo que el resultado será verdadero
+```
+
+- Menor o igual que (<=):Compara ambos valores y en caso de que el primero sea menor o igual que el segundo el resultado será verdadero, de lo contrario será falso
+```go
+resultado = (5 <= 3)  // El primer valor es mayor que el segundo valor por lo que el resultado será falso
+```
 
 ---
 # Variables
