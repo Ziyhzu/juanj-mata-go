@@ -1,7 +1,7 @@
 ---
 title: juanj-mata-go
 created: '2024-01-14T15:21:23.680Z'
-modified: '2024-01-16T05:07:59.902Z'
+modified: '2024-01-18T04:33:10.709Z'
 ---
 
 <div style="page-break-after: always;"></div>
@@ -19,7 +19,7 @@ modified: '2024-01-16T05:07:59.902Z'
 - [Enlaces de interes](#enlaces-de-interes)
 - [Introducción](#introducción)
   - [Historia de GO](#historia-de-go)
-    - [Que es GO y sus caracteristicas](#que-es-go-y-sus-caracteristicas)
+  - [Que es GO y sus caracteristicas](#que-es-go-y-sus-caracteristicas)
 - [Instalación](#instalación)
   - [Instalación de GO](#instalación-de-go)
     - [Instalación de GO en Windows](#--instalación-de-go-en-windows--)
@@ -56,9 +56,8 @@ modified: '2024-01-16T05:07:59.902Z'
     - [If, else y else if](#if-else-y-else-if)
     - [Switch](#switch)
   - [Bucles](#bucles)
-    - [While y do while](#while-y-do-while)
-    - [For](#for)
-  - [GOTO](#goto)
+    - [For](#--for--)
+    - [While y do while](#--while-y-do-while--)
 - [Funciones](#funciones)
 - [Structs](#structs)
 - [Programación orientada a objetos (POO)](#programación-orientada-a-objetos-poo)
@@ -624,19 +623,199 @@ const PI = 3.14159
 # Arrays
 [Volver al indice](#indice)
 
+Los arrays (o también llamados arreglos) son estructuras de datos donde se almacenan valores de un mismo tipo.
+
+Puedes imaginar un array como una caja donde puedes ir metiendo valores de manera ordenada y que cuando necesites alguno de esos valores puedes acceder a él sabiendo el puesto que ocupa dentro de la caja.
+
+Es importante dejar claro que todos los valores que estén dentro de un array deben ser del mismo tipo.
+
+```go
+// Creas un array de enteros (int) con la capacidad de 3 valores
+
+var arr [3]int
+```
+
+Un punto importante es que a la hora de guardar y acceder al contenido de un array no se empieza por el nuevo 1, sino por el 0.  Eso quiere decir que si creas un array con capacidad de almacenar 3 valores, a la hora de guardar y acceder a esos valores no accederás a los huecos 1, 2 y 3, sino a los huecos 0, 1 y 2.
+
+```go
+// Creas un array de 5 huecos
+
+var arr [5]int
+
+// Guardas en el primer hueco un valor
+
+arr[0] = 5
+```
+
+También tienes la posibilidad de crear un array y añadirle contenido en la misma línea de código
+
+```go
+var arr = [3]int{5, 10, 15}
+```
+
 ---
 # Estructuras de control
 [Volver al indice](#indice)
 
+Un concepto muy básico de la programación es que por defecto es lineal, es decir, los códigos se van ejecutando en orden desde la línea 1 hasta el final.
+
+Las estructuras de control son instrucciones que provocan que el código no siga ese camino lineal y dependiendo de ciertas situaciones pueda desde saltarse un trozo de código hasta saltar a la otra punta del código para ejecutar una función específica.
+
+
 ## Condicionales
+
+Los condicionales son estructuras de control que piden que algo se cumpla para ejecutarse.
+
 ### - If, else y else if -
+
+La primera estructura de control condicional es if, la cual es una de las que más usadas, sobre todo cuando se está comenzando a programar.
+
+Al usarlo lo que estás haciendo es evaluar una condición, que en el caso de ser verdadera ejecuta un código y en caso de ser falsa lo ignora.
+
+```go
+// En este código se evalúa la condición de que x sea mayor que 10. Al ser verdadera se ejecuta lo que está dentro del if.
+
+var x int = 11
+if x > 10 {
+  x = 100
+}
+```
+
+La segunda estructura de control condicional es else, el cual complementa al if haciendo que si no se cumple uno se cumpla el otro.
+
+Si la condición del if se cumple, se ejecuta el código que está dentro de este, pero si la condición resulta ser falsa, lo que se ejecuta es el código del else.
+
+```go
+// En este código se evalúa la condición y es falsa, por lo que se ignora el código del if y se ejecuta el del else.
+
+var x int = 11
+if x > 15 {
+	x = 100
+} else {
+	x = 200
+}
+```
+
+La tercera estructura de control condicional es el else if, el cual sería como si añadieras más if a la estructura de control. Primero se evaluaría el if, en caso de ser falso, se evaluaría el else if y si también es falso, finalmente se llegaría al else. Puedes poner tantos else if como quieras.
+
+```go
+// En este código se evalúa la condición del if y es falsa, luego se evalúa el else if, que al ser verdadera se ejecuta su trozo de código, ignorando el resto.
+
+var x int = 10
+if x > 10 {
+	x= 100
+} else if x == 10 {
+	x = 150
+} else {
+	x = 200
+}
+```
+
+Es muy común, sobre todo al comenzar a programar, abusar del uso de if llegando al punto de hasta crear if anidados (if unos dentro de otros). Esto último se considera una mala práctica de programación.
+
+
 ### - Switch -
 
+La estructura de control condicional switch permite coger una variable y hacer una comparación con diferentes condiciones.
+
+Inicialmente habrá una variable que tendrá un valor y a continuación se darán varios casos en los cuales se busca que alguno de ellos coincida con el valor de la variable que se dio al inicio. Si alguno de los caos coincide con la variable, el código de ese caso es el que se ejecutara. Si ocurriera que ningún caso se cumple, el código que se ejecutaría sería el default, que funcionaria como si de un else se tratara.
+
+```go
+// Tenemos una variable llamada x con el valor “juan”
+var x string = "juan"
+	switch x {
+	  // El primer caso no coincide con el valor de x, por lo que se ignora
+	  case "alberto": xxx
+    // El segundo caso coincide con el valor de x, por lo que se ejecuta el código yyy
+	  case "juan": yyy
+	  // El default es ignorado porque ya se ha cumplido uno de los posibles casos
+	  default: zzz
+	}
+```
+
 ## Bucles
-### - While y do while -
+
+Los bucles son estructuras de control que provocan que un mismo fragmento de código se repita de manera indefinida mientras se cumplan un cierto requisito.
+
 ### - For -
 
-## GOTO
+Si antes se mencionó que la estructura de control if era una de las más usadas, sobre todo al comenzar a programar, el for se usa igual o incluso más cuando el nivel ya empieza a subir.
+
+La estructura de control for tiene múltiples funciones, pero para resumirlo se podría decir que mientras la condición del for se cumpla, el código que está dentro de este se repetirá de manera indefinida.
+
+A la hora de manejar bucles debes tener mucho cuidado con las condiciones ya que si una condición se cumple siempre daría lugar a un bucle infinito, lo que provocaría que el programa fallara. Siempre hay que asegurarse de dejar una forma de que la condición deje de cumplirse y finalice el bucle.
+
+La estructura estandar del for es la siguiente:
+
+```go
+for [inicialización]; [condición]; [modificación] { // código a ejecutar}
+```
+
+Inicialización: Se ejecuta solo en la primera iteración del for.
+
+Condición: En cada iteración del bucle se evalúa esta condición, que en caso de ser verdadera, se ejecutaría el código del bucle.
+
+Modificación: Al finalizar la iteración se ejecutaría la modificación que esté indicada.
+
+La inicialización, condición y modificación no son obligatorias, lo que permite generar infinitas posibilidades al usar un bucle for.
+
+```go
+// En este ejemplo, se inicializa el for generando una variable a la que se le da el valor de 0.
+
+// Se evalúa si la variable es menos de 10, al ser verdadero se ejecutaría el código dentro del for.
+
+// Al final de cada iteración se suma 1 a la variable
+
+// Tras 10 iteraciones la variable será 10, no se cumplirá la condición y el for finalizará
+
+for i := 0; i < 10; i++ {
+xxx
+}
+```
+
+### - While y do while -
+
+Los bucles while y do-while son 2 tipos de bucles que generalmente existen en la mayoría de lenguajes de programación, pero GO no es uno de ellos. Aunque no existan oficialmente en GO, sí que es posible emularlos haciendo un uso específico del bucle for.
+
+Lo primero sería entender que son los bucles while y do-while. Estos bucles tienen un funcionamiento simple de entender: mientras se cumpla la condición, el código se seguirá repitiendo hasta que deje de cumplirse.
+
+La principal diferencia entre estos 2 bucles es que el bucle while solo se ejecuta si se cumple la condición, mientras que el bucle do-while siempre se ejecuta mínimo una vez y tras eso se comporta como si un while normal se tratase.
+
+La forma de emular un bucle while con un for sería la siguiente:
+
+```go
+// Se inicializa la variable con valor 0
+
+var i int = 0
+
+// Si se cumple la condición se ejecuta el código, el cual tiene al final un incremento.
+
+// Una vez la variable sea 5 y ya no se cumpla la condición dejara de ejecutarse el bucle.
+
+for i < 5 {
+  XXX
+  i++
+}
+```
+
+Para emular un do-while hay que insertar un condicional dentro del bucle y darle uso al comodín break:
+
+```go
+// Se inicializa la variable con valor 0
+
+var j int = 0
+
+// Una vez dentro del bucle se hace la primera iteración obligatoria. Se hace el incremento.
+
+// El bucle se repetirá hasta que la condición se cumpla, momento en el que el break finalizara el bucle.
+
+for {
+  j++
+	  if j > 4 {
+		break
+	  }
+}
+```
 
 ---
 # Funciones
