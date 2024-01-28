@@ -1,7 +1,7 @@
 ---
 title: GO
 created: '2024-01-14T15:21:23.680Z'
-modified: '2024-01-28T23:07:20.063Z'
+modified: '2024-01-28T23:33:24.553Z'
 ---
 
 # GO
@@ -900,58 +900,56 @@ for {
 # Funciones
 [Volver al indice :arrow_heading_up:](#indice)
 
-una función es un bloque de código que realiza una tarea específica. Puedes pensar en una función como una especie de "receta" que puedes llamar cuando necesitas realizar una acción en particular.
+Una función es un **bloque de código que realiza una tarea específica.** Puedes pensar en una función como una especie de "receta" que puedes llamar cuando necesitas realizar una acción en particular.
 
-Para definir una función en Go, utiliza la siguiente sintaxis básica:
+- Para **definir una función en Go**, utiliza la siguiente sintaxis básica:
 
 ```go
 func nombreDeLaFuncion(parametro1 tipo, parametro2 tipo) tipoDeRetorno {
     // Cuerpo de la función
-    // ...
     return valorDeRetorno
 }
 ```
-    func: Palabra clave para declarar una función.
-    nombreDeLaFuncion: Un nombre descriptivo para la función.
-    parametro1, parametro2: Parámetros que la función puede recibir.
-    tipoDeRetorno: Tipo de dato que la función devuelve.
+>   **func:** Palabra clave para declarar una función.
+    **nombreDeLaFuncion:** El nombre que describe para la función.
+    **parametro1, parametro2:** Parámetros que la función puede recibir.
+    **tipoDeRetorno:** Tipo de dato que la función devuelve.
+    **valorDeRetorno:** Valor que devolvera la función a donde fue invocada.
 
-    ```go
+```go
 func sumar(a int, b int) int {
     resultado := a + b
     return resultado
 }
 ```
 
-Llamando a una Función
+- **Llamando a una Función:** Después de definir una función, puedes llamarla desde otras partes de tu programa. Por ejemplo:
 
-Después de definir una función, puedes llamarla desde otras partes de tu programa. Por ejemplo:
-
-    ```go
-    // Aquí estas llamando a la función "suma", pasandole como parametros el 5 y el 3. El resultado de la función se almacena en la vartiable "resultadoSuma".
+```go
+// Aquí estas llamando a la función "suma", pasandole como parametros el 5 y el 3. El resultado de la función se almacena en la variable "resultadoSuma".
 resultadoSuma := sumar(5, 3)
 ```
-Parámetros y Argumentos
 
-En la definición de una función, los parámetros son como placeholders para valores que la función espera recibir cuando es llamada. Los valores reales que pasas a una función se llaman argumentos.
+- **Parámetros y Argumentos:** Al definir una función puedes indicar los valores que la función espera recibir cuando es llamada. Los valores que le pases a la función podran ser usados dentro de esta. Los valores reales que pasas a una función se llaman argumentos.
 
-    ```go
+```go
 func saludar(nombre string) {
-
+// Cuerpo de la función
 }
 
 // Llamando a la función con un argumento
 saludar("Juan")
 ```
-Ámbito de las Variables: Este concepto ya fue explicado en un punto anterior, pero no viene mal recomdarlo.  En el caso de que una variable se genere dentro de una función, solo existira dentro de dicha función y una vez finalice la función, desaparecera.
 
-Funciones ya preestablecidas
+- **Ámbito de las Variables:** Este concepto ya fue explicado en un punto anterior, pero no viene mal recordarlo.  En el caso de que una variable se genere dentro de una función, solo existira dentro de dicha función y una vez finalice la función, desaparecera.
 
-fmt.Println() - Imprimir en Consola:
+- **Funciones ya preestablecidas:**
 
-La función Println se utiliza para imprimir en la consola y agrega una nueva línea al final.
+- **fmt.Println() - Imprimir en Consola:**
 
-    ```go
+> La función Println se utiliza para imprimir en la consola y agrega una nueva línea al final.
+
+```go
 package main
 
 import "fmt"
@@ -960,11 +958,10 @@ func main() {
     fmt.Println("¡Hola, mundo!")
 }
 ```
+- **fmt.Sprintf() - Formatear Cadenas de Texto:**
+ > La función Sprintf se utiliza para formatear cadenas de texto sin imprimir en la consola.
 
- fmt.Sprintf() - Formatear Cadenas de Texto:
- La función Sprintf se utiliza para formatear cadenas de texto sin imprimir en la consola.
-
-     ```go
+```go
 package main
 
 import "fmt"
@@ -976,10 +973,11 @@ func main() {
     fmt.Println(mensaje)
 }
 ```
-make() - Crear Slices:
-La función make se utiliza para inicializar y asignar memoria para Slices.
 
-     ```go
+**make() - Crear Slices:**
+> La función make se utiliza para inicializar y asignar memoria para Slices.
+
+```go
 package main
 
 import "fmt"
@@ -989,10 +987,12 @@ func main() {
     miSlice := make([]int, 3)
 }
 ```
- append() - Agregar Elementos a Slices:
 
-La función append se utiliza para agregar elementos a un slice.
-     ```go
+ **append() - Agregar Elementos a Slices:**
+
+> La función append se utiliza para agregar elementos a un slice.
+
+```go
 package main
 
 import "fmt"
@@ -1004,11 +1004,11 @@ func main() {
 }
 ```
 
- len() - Obtener Longitud de Slices y Array:
+ **len() - Obtener Longitud de Slices y Array:**
 
-La función len devuelve la longitud de un slice o array.
+> La función len devuelve la longitud de un slice o array.
 
-     ```go
+```go
 package main
 
 import "fmt"
@@ -1021,12 +1021,14 @@ func main() {
 
 ---
 # Structs
-[Volver al indice](#indice)
+[Volver al indice :arrow_heading_up:](#indice)
 
-Un struct es una forma de organizar datos relacionados. Es como una caja con compartimentos, cada uno con un nombre y espacio para un tipo específico de información. Cada "celda" dentro del contenedor tiene un nombre y puede contener un valor. Esto hace que sea fácil agrupar datos que pertenecen juntos.
+Un struct es una **forma de organizar datos relacionados.** Es como una caja con compartimentos, cada uno con un nombre y espacio para un tipo específico de información. Cada "celda" dentro del contenedor tiene un nombre y puede contener un valor. Esto hace que sea fácil agrupar datos que pertenecen juntos.
 
-En el proximo punto de la documentación se tratara la Programación Orientada a Objetos y los Structs tiene un papel muy importante.
-     ```go
+> [!NOTE]  
+> En el proximo punto de la documentación se tratara la Programación Orientada a Objetos y los Structs tiene un papel muy importante.
+
+```go
 // Ejemplo de un struct en Go
 type Persona struct {
     Nombre string
@@ -1034,12 +1036,14 @@ type Persona struct {
     Altura float64
 }
 ```
-Aquí, hemos creado un struct, o tipo, llamado Persona que tiene tres compartimentos: Nombre (cadena de texto), Edad (número entero) y Altura (número decimal).
 
-¿Cómo Usar un Struct?
+Has creado un **struct, o tipo,** llamado Persona que tiene tres compartimentos: Nombre (cadena de texto), Edad (número entero) y Altura (número decimal).
 
-Para utilizar un struct, primero necesitas crear una instancia de él. Es como crear una copia de la caja con los compartimentos, y luego llenar esos compartimentos con datos.
-     ```go
+- **¿Cómo usar un Struct?**
+
+Para utilizar un struct, primero necesitas **crear una instancia de él**. Es como crear una **copia de la caja con los compartimentos**, y luego llenar esos compartimentos con datos.
+
+```go
 // Crear una nueva persona
 miPersona := Persona{
     Nombre: "Juan",
@@ -1047,89 +1051,29 @@ miPersona := Persona{
     Altura: 1.75,
 }
 ```
-Ahora, miPersona es una instancia de nuestro struct Persona con datos específicos.
-Acceder a los Datos del Struct
+> miPersona es una instancia del struct Persona con datos específicos.
 
-Puedes acceder a los datos de un struct utilizando el nombre del compartimento.
+- **Acceder a los Datos del Struct**
 
-     ```go
+Puedes acceder a los datos de un struct **utilizando el nombre del compartimento**.
+
+```go
 fmt.Println("Nombre:", miPersona.Nombre)
 fmt.Println("Edad:", miPersona.Edad)
 fmt.Println("Altura:", miPersona.Altura)
 ```
-Esto imprimirá en la consola la información asociada a cada compartimento.
+> Esto imprimirá en la consola la información asociada a cada compartimento.
 
 ---
 # Programación orientada a objetos (POO)
-[Volver al indice](#indice)
+[Volver al indice :arrow_heading_up:](#indice)
 
 
 
 ---
 # CRUD
-[Volver al indice](#indice)
+[Volver al indice :arrow_heading_up:](#indice)
 
 ---
 ---
 ---
-
-
-
-
-## Capitulo 2
-[Tabla de contenidos](#tabla-de-contenidos)
-
-### Subapartado 2.1
-[Tabla de contenidos](#tabla-de-contenidos)
-
-<div style="page-break-after: always;"></div>
-
-
-## Capitulo 3
-[Tabla de contenidos](#tabla-de-contenidos)
-
-- Recursos: 
-  - 
-
-```php
-echo "Hola Mundo";
-```
-
-### Seccion1
-[Tabla de contenidos](#tabla-de-contenidos)
-
-```console
-
-```
-
-
-
-### Seccion2
-[Tabla de contenidos](#tabla-de-contenidos)
-
-```console
-#...
-```
-
-
-#### Seccion2.1
-[Tabla de contenidos](#tabla-de-contenidos)
-
-1. **negrita**
-
-```console
-sudo apt update
-sudo apt upgrade
-```
-
-
-<a id="s22">Seccion2.2</a>
-
-[Tabla de contenidos](#indice)
-
-1. **negrita**
-
-```console
-sudo apt update
-sudo apt upgrade
-```
