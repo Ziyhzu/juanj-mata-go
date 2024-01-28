@@ -1,10 +1,8 @@
 ---
-title: juanj-mata-go
+title: GO
 created: '2024-01-14T15:21:23.680Z'
-modified: '2024-01-18T04:33:10.709Z'
+modified: '2024-01-28T20:47:01.924Z'
 ---
-
-<div style="page-break-after: always;"></div>
 
 # GO
 
@@ -14,64 +12,59 @@ modified: '2024-01-18T04:33:10.709Z'
 
 ---
 # Indice
-- [GO](#go)
-- [Indice](#indice)
-- [Enlaces de interes](#enlaces-de-interes)
+- [Enlaces de interes de GO](#enlaces-de-interes-de-go)
 - [Introducción](#introducción)
   - [Historia de GO](#historia-de-go)
-  - [Que es GO y sus caracteristicas](#que-es-go-y-sus-caracteristicas)
+  - [Que es GO y sus características](#que-es-go-y-sus-características)
 - [Instalación](#instalación)
   - [Instalación de GO](#instalación-de-go)
-    - [Instalación de GO en Windows](#--instalación-de-go-en-windows--)
-    - [Instalación de GO en Linux](#--instalación-de-go-en-linux--)
-    - [Instalación de GO en MacOS](#--instalación-de-go-en-macos--)
+    - [- Instalación de GO en Windows -](#--instalación-de-go-en-windows--)
+    - [- Instalación de GO en Linux -](#--instalación-de-go-en-linux--)
+    - [- Instalación de GO en MacOS -](#--instalación-de-go-en-macos--)
   - [Instalación del IDE Visual Studio Code](#instalación-del-ide-visual-studio-code)
-    - [Instalación de VSC en Windows](#--instalación-de-vsc-en-windows--)
-    - [Instalación de VSC en Linux](#--instalación-de-vsc-en-linux--)
-    - [Instalación de VSC en MacOS](#--instalación-de-vsc-en-macos--)
-    - [Extensiones recomendadas](#extensiones-recomendadas)
+    - [- Instalación de VSC en Windows -](#--instalación-de-vsc-en-windows--)
+    - [- Instalación de VSC en Linux -](#--instalación-de-vsc-en-linux--)
+    - [- Instalación de VSC en MacOS -](#--instalación-de-vsc-en-macos--)
+    - [- Extensiones recomendadas -](#--extensiones-recomendadas--)
 - [Hola Mundo](#hola-mundo)
 - [Conceptos basicos](#conceptos-basicos)
   - [Paquetes e importaciones](#paquetes-e-importaciones)
   - [Convención de nomenclaturas](#convención-de-nomenclaturas)
   - [Comentarios](#comentarios)
   - [Tipos de datos](#tipos-de-datos)
-    - [Enteros](#enteros)
-    - [Flotantes](#flotantes)
-    - [Booleanos](#booleanos)
-    - [Strings](#strings)
+    - [- Enteros -](#--enteros--)
+    - [- Flotantes -](#--flotantes--)
+    - [- Booleanos -](#--booleanos--)
+    - [- Strings -](#--strings--)
   - [Operadores](#operadores)
-    - [Operadores aritméticos](#operadores-aritméticos)
-    - [Operadores logísticos](#operadores-logísticos)
-    - [Operadores de comparación](#operadores-de-comparación)
+    - [- Operadores aritméticos -](#--operadores-aritméticos--)
+    - [- Operadores logísticos -](#--operadores-logísticos--)
+    - [- Operadores de comparación -](#--operadores-de-comparación--)
 - [Variables](#variables)
   - [Declaración y reasignación](#declaración-y-reasignación)
   - [Variables según su ambito](#variables-según-su-ambito)
-    - [Variables locales](#variables-locales)
-    - [Variables globales](#variables-globales)
+    - [- Variables locales -](#--variables-locales--)
+    - [- Variables globales -](#--variables-globales--)
 - [Constantes](#constantes)
 - [Arrays](#arrays)
 - [Estructuras de control](#estructuras-de-control)
   - [Condicionales](#condicionales)
-    - [If, else y else if](#if-else-y-else-if)
-    - [Switch](#switch)
+    - [- If, else y else if -](#--if-else-y-else-if--)
+    - [- Switch -](#--switch--)
   - [Bucles](#bucles)
-    - [For](#--for--)
-    - [While y do while](#--while-y-do-while--)
+    - [- For -](#--for--)
+    - [- While y do while -](#--while-y-do-while--)
 - [Funciones](#funciones)
 - [Structs](#structs)
-- [Programación orientada a objetos (POO)](#programación-orientada-a-objetos-poo)
-- [CRUD](#crud)
-  - [Capitulo 2](#capitulo-2)
-    - [Subapartado 2.1](#subapartado-21)
-  - [Capitulo 3](#capitulo-3)
     - [Seccion1](#seccion1)
     - [Seccion2](#seccion2)
       - [Seccion2.1](#seccion21)
 
+<div style="page-break-after: always;"></div>
+
 ---
-# Enlaces de interes
-[Volver al indice](#indice)
+# Enlaces de interes de GO
+[Volver al indice :arrow_heading_up:](#indice)
 
 - [Web oficial](https://go.dev/)
 - [Zona de descargas](https://go.dev/dl/)
@@ -82,17 +75,21 @@ modified: '2024-01-18T04:33:10.709Z'
 
 ---
 # Introducción
-[Volver al indice](#indice)
+[Volver al indice :arrow_heading_up:](#indice)
 
 ##  Historia de GO
 
-La compañía Google, conocida por dar múltiples servicios en internet, como puede ser su famoso buscador [www.google.es](www.google.es), es una empresa que maneja una gran variedad de proyectos.
+- La compañía **Google**, conocida por dar múltiples servicios en internet, como puede ser su famoso buscador **[www.google.es](www.google.es)**, es una empresa que maneja una gran variedad de proyectos.
 
-Antes de que existiera Go, Google usaba para sus proyectos sobre todo lenguajes de bajo nivel como podían ser C o C++. En el año 2007 tres de sus desarrolladores (Rob Pike, Robert Griesemer y Ken Thompson) se pusieron manos a la obra y cogieron lo mejor del lenguaje C y lo mejor del lenguaje Python para sentar las bases para un nuevo lenguaje de programación. Dos años después, en el 2009, Google lanzo oficialmente el lenguaje de programación bautizado como Go, aunque también es conocido como Golang o Google Go.
+- Antes de que existiera Go, Google usaba para sus proyectos principalmente lenguajes de bajo nivel como podían ser C o C++. En el año 2007 tres de sus desarrolladores (**Rob Pike**, **Robert Griesemer** y **Ken Thompson**) se pusieron manos a la obra y cogieron lo mejor del lenguaje C y lo mejor del lenguaje Python para sentar las bases para un nuevo lenguaje de programación. Dos años después, **en el 2009, Google lanzo oficialmente el lenguaje de programación bautizado como Go**, también conocido como Golang o Google Go.
 
-Go nació con el objetivo de aprender y no cometer los mismos errores que cometían otros lenguajes de programación mas antiguos, por ellos se cogió lo mejor de cada uno y se eliminaron problemas y limitaciones que estos presentaban.
+- Go nació con el **objetivo de aprender y no cometer los mismos errores** que cometían otros lenguajes de programación mas antiguos, por ellos se cogió lo mejor de cada uno y se eliminaron problemas y limitaciones que estos presentaban.
 
-En la actualidad Go es usado por multitud de compañías como por ejemplo Paypal, Dropbox, Netflix, Uber, Twitch, etc, y lógicamente por su creadora, Google.
+> [!CAUTION]
+> En la actualidad Go es usado por multitud de compañías como por ejemplo Paypal, Dropbox, Netflix, Uber, Twitch, etc, y lógicamente por su creadora, Google.
+
+
+- En la actualidad Go es usado por multitud de compañías como por ejemplo Paypal, Dropbox, Netflix, Uber, Twitch, etc, y lógicamente por su creadora, Google.
 
 ## Que es GO y sus características
 
@@ -372,7 +369,7 @@ El más usado por regla general es el tipo float64
 
 ### - Booleanos -
 
-El tipo de dato booleano se usa para almacenar un valor lógico true (verdadero) o false (falso).
+En programación, los booleanos son un tipo de dato fundamental utilizado para almacenar valores lógicos. En Go, específicamente, el tipo de dato booleano puede tomar uno de dos valores: true (verdadero) o false (falso). Estos valores son esenciales para controlar la lógica en los programas y para tomar decisiones basadas en condiciones.
 
 ```go
 var esVerdadero bool = true
@@ -380,11 +377,70 @@ var esVerdadero bool = true
 
 ### - Strings -
 
-El tipo de dato string sería una cadena de caracteres, es decir, una secuencia de caracteres Unicode.
+En el mundo de la programación, un "string" no es más que una secuencia de caracteres. Para entenderlo mejor, imagina que una cadena de texto es como una línea de letras, números y símbolos.
+
+En Go, puedes crear una cadena de texto usando la palabra clave var y luego asignarle tu mensaje entre comillas
 
 ```go
 var miCadena string = "Hola, mundo!"
 ```
+
+En este código, estamos diciendo: "Vamos a tener una cadena de texto llamada miCadena, y le daremos el valor de 'Hola, mundo!'.
+
+El tipo de dato string es uno de los más importantes, además, permite ser manipulado de múltiples formas:
+
+Concatenación de Cadenas: Imagina que quieres unir dos mensajes. Puedes hacerlo usando el símbolo +:
+
+```go
+var saludo = "Hola, "
+var nombre = "usuario"
+var mensaje = saludo + nombre
+```
+
+Longitud de una Cadena: Un string es al fin y al cabo un conjunto de caracteres por lo que podemos saber su longitud contando, para ello se usa la función len():
+
+
+```go
+
+// En este caso, longitud sería 8.
+var palabra = "elefante"
+var longitud = len(palabra)
+
+```
+
+En este caso, longitud sería 8.
+
+Obtener un Carácter de una Cadena: De igual manera que puedes contar la longitud de caracteres de un string,  puedes hacer referencia al carácter que quieras de la cadena utilizando corchetes y el número que represente su posición:
+
+// En este caso, primerCaracter sería "H", ya que en la posición 0 de la cadena está la letra "H".
+var miCadena = "Hola, mundo!"
+var primerCaracter = miCadena[0]
+
+```
+
+Conversión a Mayúsculas o Minúsculas: Es posible manipular el string y convertir todos los caracteres a mayúsculas o a minúsculas
+
+```go
+
+// En este caso, mensajeMayusculas sería "HOLA, MUNDO!" y mensajeMinusculas sería "hola, mundo!"
+var mensaje = "Hola, mundo!"
+var mensajeMayusculas = strings.ToUpper(mensaje)
+var mensajeMinusculas = strings.ToLower(mensaje))
+
+```
+
+Buscar una cadena de caracteres dentro de un string: Se puede dar el caso de que el string sea una frase y quieras saber si la frase contiene alguna palabra o letra en particular, pues tambien es posible conseguirlo.
+
+```go
+
+// En este caso, contieneHola sería true, ya que la cadena contiene la palabra "Hola".
+var mensaje = "Hola, mundo!"
+var contieneHola = strings.Contains(mensaje, "Hola")
+
+```
+
+
+
 
 ## Operadores
 ### - Operadores aritméticos -
@@ -627,7 +683,7 @@ Los arrays (o también llamados arreglos) son estructuras de datos donde se alma
 
 Puedes imaginar un array como una caja donde puedes ir metiendo valores de manera ordenada y que cuando necesites alguno de esos valores puedes acceder a él sabiendo el puesto que ocupa dentro de la caja.
 
-Es importante dejar claro que todos los valores que estén dentro de un array deben ser del mismo tipo.
+Es esencial entender que todos los valores dentro de un array deben ser del mismo tipo. Esto significa que si creas un array de enteros, todos los elementos deben ser enteros.
 
 ```go
 // Creas un array de enteros (int) con la capacidad de 3 valores
@@ -651,6 +707,71 @@ También tienes la posibilidad de crear un array y añadirle contenido en la mis
 
 ```go
 var arr = [3]int{5, 10, 15}
+```
+
+Así como un array es un contenedor de variables, existe la posibilidad de que un array contenga otro array. A esta estructura se le llama array multidimensional o matriz. No hay límite en la cantidad de arrays que puedes anidar, pero ten en cuenta que la complejidad para manejarlos aumenta considerablemente.
+
+```go
+// Ejemplo: Crear una matriz bidimensional
+var matriz = [2][3]int{{1, 2, 3}, {4, 5, 6}}
+```
+
+Longitud del Array
+
+Es importante mencionar que un array tiene una longitud fija que se establece en el momento de su creación. La longitud no puede modificarse una vez que se ha definido.
+
+```go
+// Ejemplo: Crear un array de longitud 4
+var arr [4]int
+```
+
+Slices como Alternativa Dinámica
+
+Si necesitas una estructura de datos dinámica (es decir, que pueda cambiar de tamaño), existe algo parecido a los arrays que se llaman slices. Los slices son más flexibles y permiten una gestión más fácil de la longitud.
+
+```go
+// Ejemplo: Crear un slice en lugar de un array
+slice := []int{1, 2, 3}
+```
+
+Slices como Alternativa Dinámica a los Arrays
+
+Los slices en Go son una estructura de datos más versátil y dinámica en comparación con los arrays. A diferencia de los arrays, los slices no tienen una longitud fija al ser creados, lo que los hace más flexibles para gestionar conjuntos de datos de tamaño variable.
+
+Creación de Slices
+
+Puedes crear un slice utilizando la función make o directamente con la sintaxis de corchetes sin especificar una longitud.
+
+```go
+// Crear un slice utilizando la función make
+slice := make([]int, 3)
+
+// Crear un slice sin especificar longitud (longitud dinámica)
+otroSlice := []string{"a", "b", "c"}
+```
+Agregar y Eliminar Elementos
+
+A diferencia de los arrays, los slices permiten agregar y eliminar elementos de manera dinámica. Puedes utilizar las funciones append y el slicing para lograr esto.
+
+```go
+// Crear un slice utilizando la función make
+slice := make([]int, 3)
+
+// Crear un slice sin especificar longitud (longitud dinámica)
+otroSlice := []string{"a", "b", "c"}
+```
+
+Agregar y Eliminar Elementos
+
+A diferencia de los arrays, los slices permiten agregar y eliminar elementos de manera dinámica. Puedes utilizar las funciones append y el slicing para lograr esto.
+
+```go
+// Agregar un elemento a un slice
+slice = append(slice, 4)
+
+// Eliminar un elemento de un slice
+indiceAEliminar := 1
+slice = append(slice[:indiceAEliminar])
 ```
 
 ---
@@ -786,11 +907,11 @@ La forma de emular un bucle while con un for sería la siguiente:
 ```go
 // Se inicializa la variable con valor 0
 
-var i int = 0
-
 // Si se cumple la condición se ejecuta el código, el cual tiene al final un incremento.
 
 // Una vez la variable sea 5 y ya no se cumpla la condición dejara de ejecutarse el bucle.
+
+var i int = 0
 
 for i < 5 {
   XXX
@@ -803,17 +924,17 @@ Para emular un do-while hay que insertar un condicional dentro del bucle y darle
 ```go
 // Se inicializa la variable con valor 0
 
-var j int = 0
-
 // Una vez dentro del bucle se hace la primera iteración obligatoria. Se hace el incremento.
 
 // El bucle se repetirá hasta que la condición se cumpla, momento en el que el break finalizara el bucle.
 
+var j int = 0
+
 for {
-  j++
-	  if j > 4 {
-		break
-	  }
+ j++
+  if j > 4 {
+  break
+  }
 }
 ```
 
@@ -821,13 +942,170 @@ for {
 # Funciones
 [Volver al indice](#indice)
 
+una función es un bloque de código que realiza una tarea específica. Puedes pensar en una función como una especie de "receta" que puedes llamar cuando necesitas realizar una acción en particular.
+
+Para definir una función en Go, utiliza la siguiente sintaxis básica:
+
+```go
+func nombreDeLaFuncion(parametro1 tipo, parametro2 tipo) tipoDeRetorno {
+    // Cuerpo de la función
+    // ...
+    return valorDeRetorno
+}
+```
+    func: Palabra clave para declarar una función.
+    nombreDeLaFuncion: Un nombre descriptivo para la función.
+    parametro1, parametro2: Parámetros que la función puede recibir.
+    tipoDeRetorno: Tipo de dato que la función devuelve.
+
+    ```go
+func sumar(a int, b int) int {
+    resultado := a + b
+    return resultado
+}
+```
+
+Llamando a una Función
+
+Después de definir una función, puedes llamarla desde otras partes de tu programa. Por ejemplo:
+
+    ```go
+    // Aquí estas llamando a la función "suma", pasandole como parametros el 5 y el 3. El resultado de la función se almacena en la vartiable "resultadoSuma".
+resultadoSuma := sumar(5, 3)
+```
+Parámetros y Argumentos
+
+En la definición de una función, los parámetros son como placeholders para valores que la función espera recibir cuando es llamada. Los valores reales que pasas a una función se llaman argumentos.
+
+    ```go
+func saludar(nombre string) {
+
+}
+
+// Llamando a la función con un argumento
+saludar("Juan")
+```
+Ámbito de las Variables: Este concepto ya fue explicado en un punto anterior, pero no viene mal recomdarlo.  En el caso de que una variable se genere dentro de una función, solo existira dentro de dicha función y una vez finalice la función, desaparecera.
+
+Funciones ya preestablecidas
+
+fmt.Println() - Imprimir en Consola:
+
+La función Println se utiliza para imprimir en la consola y agrega una nueva línea al final.
+
+    ```go
+package main
+
+import "fmt"
+
+func main() {
+    fmt.Println("¡Hola, mundo!")
+}
+```
+
+ fmt.Sprintf() - Formatear Cadenas de Texto:
+ La función Sprintf se utiliza para formatear cadenas de texto sin imprimir en la consola.
+
+     ```go
+package main
+
+import "fmt"
+
+func main() {
+    nombre := "Juan"
+    edad := 25
+    mensaje := fmt.Sprintf("Hola, mi nombre es %s y tengo %d años.", nombre, edad)
+    fmt.Println(mensaje)
+}
+```
+make() - Crear Slices:
+La función make se utiliza para inicializar y asignar memoria para Slices.
+
+     ```go
+package main
+
+import "fmt"
+
+func main() {
+    // Crear un slice de enteros con longitud 3
+    miSlice := make([]int, 3)
+}
+```
+ append() - Agregar Elementos a Slices:
+
+La función append se utiliza para agregar elementos a un slice.
+     ```go
+package main
+
+import "fmt"
+
+func main() {
+    miSlice := []int{1, 2, 3}
+    miSlice = append(miSlice, 4, 5)
+    fmt.Println(miSlice) // Imprimirá: [1 2 3 4 5]
+}
+```
+
+ len() - Obtener Longitud de Slices y Array:
+
+La función len devuelve la longitud de un slice o array.
+
+     ```go
+package main
+
+import "fmt"
+
+func main() {
+    miSlice := []int{1, 2, 3, 4, 5}
+    longitud := len(miSlice)
+    fmt.Println("La longitud del slice es:", longitud) // Imprimirá: La longitud del slice es: 5
+```
+
 ---
 # Structs
 [Volver al indice](#indice)
 
+Un struct es una forma de organizar datos relacionados. Es como una caja con compartimentos, cada uno con un nombre y espacio para un tipo específico de información. Cada "celda" dentro del contenedor tiene un nombre y puede contener un valor. Esto hace que sea fácil agrupar datos que pertenecen juntos.
+
+En el proximo punto de la documentación se tratara la Programación Orientada a Objetos y los Structs tiene un papel muy importante.
+     ```go
+// Ejemplo de un struct en Go
+type Persona struct {
+    Nombre string
+    Edad   int
+    Altura float64
+}
+```
+Aquí, hemos creado un struct, o tipo, llamado Persona que tiene tres compartimentos: Nombre (cadena de texto), Edad (número entero) y Altura (número decimal).
+
+¿Cómo Usar un Struct?
+
+Para utilizar un struct, primero necesitas crear una instancia de él. Es como crear una copia de la caja con los compartimentos, y luego llenar esos compartimentos con datos.
+     ```go
+// Crear una nueva persona
+miPersona := Persona{
+    Nombre: "Juan",
+    Edad:   35,
+    Altura: 1.75,
+}
+```
+Ahora, miPersona es una instancia de nuestro struct Persona con datos específicos.
+Acceder a los Datos del Struct
+
+Puedes acceder a los datos de un struct utilizando el nombre del compartimento.
+
+     ```go
+fmt.Println("Nombre:", miPersona.Nombre)
+fmt.Println("Edad:", miPersona.Edad)
+fmt.Println("Altura:", miPersona.Altura)
+```
+Esto imprimirá en la consola la información asociada a cada compartimento.
+
 ---
 # Programación orientada a objetos (POO)
 [Volver al indice](#indice)
+
+
 
 ---
 # CRUD
