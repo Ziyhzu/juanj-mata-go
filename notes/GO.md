@@ -1,7 +1,7 @@
 ---
 title: GO
 created: '2024-01-14T15:21:23.680Z'
-modified: '2024-01-28T20:47:01.924Z'
+modified: '2024-01-28T22:17:12.377Z'
 ---
 
 # GO
@@ -17,11 +17,11 @@ modified: '2024-01-28T20:47:01.924Z'
   - [Historia de GO](#historia-de-go)
   - [Que es GO y sus características](#que-es-go-y-sus-características)
 - [Instalación](#instalación)
-  - [Instalación de GO](#instalación-de-go)
+  - [Archivos de instalación de GO](#archivos-de-instalación-de-go)
     - [- Instalación de GO en Windows -](#--instalación-de-go-en-windows--)
     - [- Instalación de GO en Linux -](#--instalación-de-go-en-linux--)
     - [- Instalación de GO en MacOS -](#--instalación-de-go-en-macos--)
-  - [Instalación del IDE Visual Studio Code](#instalación-del-ide-visual-studio-code)
+  - [Archivos de instalación del IDE Visual Studio Code](#archivos-de-intalación-del-ide-visual-studio-code)
     - [- Instalación de VSC en Windows -](#--instalación-de-vsc-en-windows--)
     - [- Instalación de VSC en Linux -](#--instalación-de-vsc-en-linux--)
     - [- Instalación de VSC en MacOS -](#--instalación-de-vsc-en-macos--)
@@ -79,185 +79,193 @@ modified: '2024-01-28T20:47:01.924Z'
 
 ##  Historia de GO
 
-- La compañía **Google**, conocida por dar múltiples servicios en internet, como puede ser su famoso buscador **[www.google.es](www.google.es)**, es una empresa que maneja una gran variedad de proyectos.
+La compañía **Google**, conocida por dar múltiples servicios en internet, como puede ser su famoso buscador **[www.google.es](www.google.es)**, es una empresa que maneja una gran variedad de proyectos.
 
-- Antes de que existiera Go, Google usaba para sus proyectos principalmente lenguajes de bajo nivel como podían ser C o C++. En el año 2007 tres de sus desarrolladores (**Rob Pike**, **Robert Griesemer** y **Ken Thompson**) se pusieron manos a la obra y cogieron lo mejor del lenguaje C y lo mejor del lenguaje Python para sentar las bases para un nuevo lenguaje de programación. Dos años después, **en el 2009, Google lanzo oficialmente el lenguaje de programación bautizado como Go**, también conocido como Golang o Google Go.
+Antes de que existiera Go, Google usaba para sus proyectos principalmente lenguajes de bajo nivel como podían ser C o C++. En el año 2007 tres de sus desarrolladores (**Rob Pike**, **Robert Griesemer** y **Ken Thompson**) se pusieron manos a la obra y cogieron lo mejor del lenguaje C y lo mejor del lenguaje Python para sentar las bases para un nuevo lenguaje de programación. Dos años después, **en el 2009, Google lanzo oficialmente el lenguaje de programación bautizado como Go**, también conocido como Golang o Google Go.
 
-- Go nació con el **objetivo de aprender y no cometer los mismos errores** que cometían otros lenguajes de programación mas antiguos, por ellos se cogió lo mejor de cada uno y se eliminaron problemas y limitaciones que estos presentaban.
+Go nació con el **objetivo de aprender y no cometer los mismos errores** que cometían otros lenguajes de programación mas antiguos, por ellos se cogió lo mejor de cada uno y se eliminaron problemas y limitaciones que estos presentaban.
 
-> [!CAUTION]
-> En la actualidad Go es usado por multitud de compañías como por ejemplo Paypal, Dropbox, Netflix, Uber, Twitch, etc, y lógicamente por su creadora, Google.
-
-
-- En la actualidad Go es usado por multitud de compañías como por ejemplo Paypal, Dropbox, Netflix, Uber, Twitch, etc, y lógicamente por su creadora, Google.
+En la actualidad Go es usado por multitud de compañías como por ejemplo Paypal, Dropbox, Netflix, Uber, Twitch, etc, y lógicamente por su creadora, Google.
 
 ## Que es GO y sus características
 
-Go es un lenguaje de programación desarrollado por Google que nació con el principal objetivo de ser un lenguaje bastante simple, pero al mismo tiempo ser muy eficiente. Este año 2024 cumple 15 años, lo que significa que en comparación con otros lenguajes de programación como C o Java, se trata de un lenguaje joven.
+Go es un lenguaje de programación desarrollado por Google que nació con el principal **objetivo de ser un lenguaje bastante simple, pero al mismo tiempo ser muy eficiente**. Este año 2024 cumple 15 años, lo que significa que en comparación con otros lenguajes de programación como C o Java, se trata de un lenguaje joven.
 
-
-Características:
-
-- Simplicidad: Tiene una sintaxis clara y organizada.
-- Muy fácil de usar
-- OpenSource: Es un lenguaje de código abierto.
-- Lenguaje compilado: El código fuente se compila generando código máquina y así ejecutar el programma.
-- Usa tipado estático: Una vez se le asigna un tipo de dato a una variable esta ya no puede cambiar.
-- No está orientado a objetos (POO), pero tiene formas de emularlo
-- Es multiprocesador y concurrente: Permite ejecutar múltiples procesos paralelamente en cada uno de los procesadores del equipo.
-
+> **Características:**
+>
+>> **Simplicidad:** Tiene una sintaxis clara y organizada.
+>>
+>> **OpenSource:** Es un lenguaje de código abierto.
+>>
+>> **Lenguaje compilado:** El código fuente se compila generando código máquina y así ejecutar el programma.
+>>
+>> **Usa tipado estático:** Una vez se le asigna un tipo de dato a una variable esta ya no puede cambiar.
+>>
+>> **No está orientado a objetos (POO)**, pero tiene formas de emularlo
+>>
+>> **Es multiprocesador y concurrente:** Permite ejecutar múltiples procesos paralelamente en cada uno de los procesadores del equipo.
 
 ---
 # Instalación
 [Volver al indice](#indice)
 
-## Instalación de GO
+## Archivos de instalación de GO
 
-Go se puede instalar en cualquier sistema operativo. Accede a [la zona de descargas](https://go.dev/dl/) de la web oficial de GO.
+- Accede a **[la zona de descargas](https://go.dev/dl/)** de la web oficial de GO.
 
-Una vez en la zona de descargas tienes disponible la sección “Featured downloads” en la cual aparecen los paquetes de instalación de los sistemas operativos con sus arquitecturas más comunes.
+- Una vez en la zona de descargas, tienes disponible la sección **“Featured downloads”** en la cual aparecen los paquetes de instalación de los sistemas operativos con sus arquitecturas más comunes.
 
-También está la sección “Stable versions” donde se encuentra un listado completo de paquetes de instalación en sus últimas versiones estables organizados por sistema operativo y por arquitecturas.
+- También está la sección **“Stable versions”** donde se encuentra un listado completo de paquetes de instalación en sus últimas versiones estables organizados por sistema operativo y por arquitecturas.
 
-Si en la sección “featured downloads” no aparece el paquete que coincida con tu sistema operativo y arquitectura, en la sección “Stable versions” lo encontraras.
+> Si en la sección “featured downloads” no aparece el paquete que coincida con tu sistema operativo y arquitectura, en la sección “Stable versions” lo encontraras.
 
-Por último, está la sección “Unstable versión” donde puedes descargar los paquetes de instalación de versiones no estables (No recomendado).
+- Por último, está la sección **“Unstable versión”** donde puedes descargar los paquetes de instalación de versiones no estables (No recomendado).
 
-En el momento de hacer esta documentación (enero del 2024) la versión estable más actualizada es la 1.21.6.
+> [!NOTE]  
+> En el momento de hacer esta documentación (enero del 2024) la versión estable más actualizada es la 1.21.6.
 
 ### - Instalación de GO en Windows -
 
-En Windows la forma de instalar GO es muy simple. En la zona de descargas de la página web oficial de GO debes  [descargar el paquete de Windows](https://go.dev/dl/go1.21.6.windows-amd64.msi) y ejecutarlo para iniciar la instalación.
+- En Windows la forma de instalar GO es muy simple. En la zona de descargas de la página web oficial de GO debes **[descargar el paquete de Windows](https://go.dev/dl/go1.21.6.windows-amd64.msi)** y ejecutarlo para iniciar la instalación.
 
-El proceso de instalación se resume en pulsar “siguiente” en las pantallas por lo que no tiene ninguna dificultad.
+- **El proceso de instalación se resume en pulsar “siguiente”** en las pantallas por lo que no tiene ninguna dificultad.
 
-Una vez finalizada la instalación puedes confirmar que esta se ha realizado correctamente abriendo una consola CMD y ejecutando el comando:
+- Una vez finalizada la instalación puedes **confirmar que esta se ha realizado correctamente** abriendo una consola CMD y ejecutando el comando:
 
 ```console
 go versión
 ```
 
-Debería aparecer un mensaje indicándote la versión instalada, que en este caso debería ser la 1.21.6.
+- Debería aparecer un **mensaje indicándote la versión instalada**, que en este caso debería ser la 1.21.6.
 
 ### - Instalación de GO en Linux -
 
-Para instalar Go en linux abre una consola de comandos y ejecuta los siguientes comandos:
+- Para instalar Go en linux abre una **consola de comandos y ejecuta los siguientes comandos:**
 
 ```console
 # Te sitúas en la carpeta de descargas
 cd Descargas
+
 # Descargas el paquete de instalación
 wget https://go.dev/dl/go1.21.6.linux-amd64.tar.gz
+
 # Copias el paquete en la ruta /usr/local
 sudo cp go1.21.6.linux.amd64.tar.gz /usr/local
+
 # Te sitúas en la carpeta /usr/local
 cd ~
 cd /usr/local
+
 # Creas la carpeta GO y descomprimes en ella el paquete
 sudo rm -rf /usr/local/go && sudo tar -C /usr/local -xzf go1.21.6.linux-amd64.tar.gz
 ```
 
-El siguiente paso es añadir acceso de variable de global:
+- El siguiente paso es **añadir acceso de variable global:**
 
 ```console
 export PATH=$PATH:/usr/local/go/bin
 ```
 
-Para confirmar que se ha añadido correctamente ejecutamos el siguiente comando:
+- **Para confirmar** que se ha añadido correctamente ejecutamos el siguiente comando:
 
 ```console
 echo $PATH
+
+# Si aparece “/usr/local/go/bin” significa que funcionó correctamente.
 ```
 
-Si aparece “/usr/local/go/bin” significa que funcionó correctamente.
-
-Finalmente, para confirmar que GO esta instalado, ejecuta el comando:
+- Finalmente, para **confirmar que GO esta instalado**, ejecuta el comando:
 
 ```console
 go versión
 ```
 
-Debería aparecer un mensaje indicando la versión instalada, que en este caso debería ser la 1.21.6.
+- Debería aparecer un **mensaje indicando la versión instalada**, que en este caso debería ser la 1.21.6.
 
 
 ### - Instalación de GO en MacOS -
 
-Para instalar GO en un equipo con MacOS puedes usar el mismo método que con el sistema operativo Windows.
+- Para instalar GO en un equipo con MacOS puedes usar el **mismo método que con el sistema operativo Windows**.
 
-En la zona de descargas de la página web oficial de GO descargas el [paquete de instalación de MacOS para ARM64](https://go.dev/dl/go1.21.6.darwin-arm64.pkg) o [el paquete de instalación de MacOS para x86-64](https://go.dev/dl/go1.21.6.darwin-amd64.pkg) y lo ejecutas para iniciar la instalación.
+- En la zona de descargas de la página web oficial de GO descargas el **[paquete de instalación de MacOS para ARM64](https://go.dev/dl/go1.21.6.darwin-arm64.pkg)** o **[el paquete de instalación de MacOS para x86-64](https://go.dev/dl/go1.21.6.darwin-amd64.pkg)** y lo ejecutas para iniciar la instalación.
 
-El proceso de instalación se resume en pulsar “siguiente” en las pantallas por lo que no tiene ninguna dificultad.
+- El proceso de **instalación se resume en pulsar “siguiente”** en las pantallas por lo que no tiene ninguna dificultad.
 
-Una vez finalizada la instalación puedes confirmar que esta se ha realizado correctamente abriendo una consola CMD y ejecutando el comando:
+- Una vez finalizada la instalación puedes **confirmar que esta se ha realizado correctamente** abriendo una consola CMD y ejecutando el comando:
 
 ```console
 go versión
 ```
 
-Debería aparecer un mensaje indicándote la versión instalada, que en este caso debería ser la 1.21.6.
+- Debería aparecer un **mensaje indicándote la versión instalada**, que en este caso debería ser la 1.21.6.
 
 
-## Instalación del IDE Visual Studio Code
+## Archivos de instalación del IDE Visual Studio Code
 
-Para empezar a programar con GO primero debemos decidir que Entorno de desarrollo (IDE) vamos a usar.
+- Para empezar a programar con GO primero debemos decidir que Entorno de desarrollo (IDE) vamos a usar.
 
-Existe un IDE llamado [GoLand](https://www.jetbrains.com/go/) el cual fue creado en exclusiva para ser usado junto con Go, pero por desgracia se trata de un IDE de pago.
+- Existe un IDE llamado **[GoLand](https://www.jetbrains.com/go/)** el cual fue creado en exclusiva para ser usado junto con Go, pero por desgracia se trata de un IDE de pago.
 
-Existen muchas opciones, pero el IDE más usado en la actualidad y que además es compatible con GO es Visual Studio Code, por lo que es el que recomiendo.
+- Existen muchas opciones, pero el **IDE más usado en la actualidad y que además es compatible con GO es Visual Studio Code**, por lo que es el que recomiendo.
 
 
 ### - Instalación de VSC en Windows -
 
-Para instalar Visual Studio Code debes acceder a la [zona de descargas](https://code.visualstudio.com/Download) de su página web oficial, pulsar en el botón donde pone “Windows” y [descargar el paquete de instalación](https://code.visualstudio.com/sha/download?build=stable&os=win32-x64-user).
+- Para instalar Visual Studio Code debes acceder a la **[zona de descargas](https://code.visualstudio.com/Download)** de su página web oficial, pulsar en el botón donde pone “Windows” y **[descargar el paquete de instalación](https://code.visualstudio.com/sha/download?build=stable&os=win32-x64-user).**
 
-En el momento de realizar esta documentación la versión más actualizada es la 1.85.
+> [!NOTE]  
+> En el momento de realizar esta documentación la versión más actualizada es la 1.85.
 
-Una vez descargado debes ejecutar el paquete de instalación. El proceso de instalación se resume en pulsar “siguiente” en las pantallas por lo que no tiene ninguna dificultad.
+- Una vez descargado debes ejecutar el paquete de instalación. El **proceso de instalación se resume en pulsar “siguiente”** en las pantallas por lo que no tiene ninguna dificultad.
 
 ### - Instalación de VSC en Linux -
 
-Para realizar la instalación de Visual Studio Code en linux abre una consola y ejecuta los siguientes comandos:
+- Para realizar la instalación de Visual Studio Code en linux **abre una consola y ejecuta los siguientes comandos:**
 
 ```console
 sudo apt update
+
 sudo apt install software-properties-common apt-transport-https wget
+
 wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | sudo apt-key add -
 sudo add-apt-repository "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
+
 sudo apt install code
 ```
 
 ### - Instalación de VSC en MacOS -
 
-Para instalar Visual Studio Code debes acceder a la [zona de descargas](https://code.visualstudio.com/Download) de su página web oficial, pulsar en el botón donde pone “Mac” y [descargar el paquete de instalación](https://code.visualstudio.com/sha/download?build=stable&os=darwin-universal).
+- Para instalar Visual Studio Code debes acceder a la **[zona de descargas](https://code.visualstudio.com/Download)** de su página web oficial, pulsar en el botón donde pone “Mac” y **[descargar el paquete de instalación](https://code.visualstudio.com/sha/download?build=stable&os=darwin-universal).**
 
-En el momento de realizar esta documentación la versión más actualizada es la 1.85.
+> [!NOTE]  
+> En el momento de realizar esta documentación la versión más actualizada es la 1.85.
 
-Una vez descargado debes ejecutar el paquete de instalación. El proceso de instalación se resume en pulsar “siguiente” en las pantallas por lo que no tiene ninguna dificultad.
+- Una vez descargado debes ejecutar el paquete de instalación. El **proceso de instalación se resume en pulsar “siguiente”** en las pantallas por lo que no tiene ninguna dificultad.
 
 
 ### - Extensiones recomendadas -
 
-Una vez tengas instalado el IDE Visual Studio Code, lo primero que harás es ir a la sección de extensiones (Control + Mayus + X), escribir “go” e instalar la primera extensión que aparece.
+- Una vez tengas instalado el IDE Visual Studio Code, lo primero que harás es ir a la **sección de extensiones** (Control + Mayus + X), escribir **“go”** e instalar la primera extensión que aparece.
 
-La extensión “GO” añadirá funciones extras a Visual Studio Code cuando estés programando con el lenguaje GO, como por ejemplo IntelliSense.
+- La extensión “GO” añadirá funciones extras a Visual Studio Code cuando estés programando con el lenguaje GO, como por ejemplo **IntelliSense.**
 
-Si tras la instalación de la extensión "go” o cuando empieces a generar tus primeros códigos de GO aparece en la esquina de abajo a la derecha algún mensaje indicándote que hace falta instalar alguna extensión extra, no lo dudes y pulsa el botón instalar ya que te hará falta.
+- Si tras la instalación de la extensión "go” o cuando empieces a generar tus primeros códigos de GO aparece en la esquina de abajo a la derecha algún **mensaje indicándote que hace falta instalar alguna extensión extra, no lo dudes y pulsa el botón instalar** ya que te hará falta.
 
-También sería recomendable que instalaras la extensión “Spanish Languaje Pack for Visual Studio Code” para que tengas el IDE en español.
+- También sería recomendable que instalaras la extensión **“Spanish Languaje Pack for Visual Studio Code”** para que tengas el IDE en español.
 
 ---
 # Hola Mundo
-[Volver al indice](#indice)
+[Volver al indice :arrow_heading_up:](#indice)
 
-Como suele ser común con todos los lenguajes de programación, el primer código que probaras será el famoso “Hola Mundo”.
+Como suele ser común con todos los lenguajes de programación, el primer código que probaras será el famoso **“Hola Mundo”.**
 
-Para ello lo primero será crear una carpeta en el directorio que tú quieras de tu ordenador, teniendo en cuenta que esa carpeta será donde vas a guardar tus proyectos en GO.
+- Para ello lo primero será **crear una carpeta** en el directorio que tú quieras de tu ordenador, teniendo en cuenta que esa carpeta será donde vas a guardar tus proyectos en GO.
 
-Una vez creada la carpeta, en Visual Studio Code debes ir a “Archivo > Agregar carpeta al área de trabajo” y seleccionar la carpeta que acabas de crear.
+- Una vez creada la carpeta, en Visual Studio Code debes ir a **“Archivo > Agregar carpeta al área de trabajo”** y seleccionar la carpeta que acabas de crear.
 
-Lo siguiente será crear un archivo dentro de la carpeta, al que llamaremos “HolaMundo.go”.
+- Lo siguiente será crear un archivo dentro de la carpeta, al que llamaremos **“HolaMundo.go”.**
 
-Para generar el primer Hola Mundo debes escribir el siguiente código:
+- Para generar el primer Hola Mundo debes escribir el siguiente código:
 
 ```GO
 package main
@@ -269,27 +277,25 @@ func main() {
 }
 ```
 
-Para ejecutarlo debes pulsar el botón “Run code” que se encuentra en la parte superior derecha de Visual Studio Code, o usar el atajo de teclado Control + Alt + N.
+- Para ejecutarlo debes pulsar el botón **“Run code”** que se encuentra en la parte superior derecha de Visual Studio Code, o usar el atajo de teclado **Control + Alt + N.**
 
-El resultado será que se muestre por consola el mensaje “Hola mundo”.
+- El resultado será que se muestre por consola el mensaje “Hola mundo”.
 
 ---
 # Conceptos basicos
-[Volver al indice](#indice)
+[Volver al indice :arrow_heading_up:](#indice)
 
-Ya sabes que es GO y tienes listo el entorno para empezar a usarlo, pero antes es importante entender unos conceptos básicos.
+Ya sabes que es GO y tienes listo el entorno para empezar a usarlo, pero antes **es importante entender unos conceptos básicos.**
 
 ## Paquetes e importaciones
 
-Los programas escritos en lenguaje GO se organizan en paquetes que ayudan a gestionar y modular el código. Cada archivo .go que creemos debe tener en su primera línea de código el nombre del paquete al que pertenece.
-
-Siempre que empecemos un proyecto en GO el primer documento .go que creemos será el paquete principal main
+Los programas escritos en lenguaje GO **se organizan en paquetes** que ayudan a gestionar y modular el código. Siempre que empieces un proyecto en GO el **primer archivo .go que crees será el paquete principal main.** Cada archivo .go que crees **debe tener en su primera línea de código el nombre del paquete al que pertenece.**
 
 ```go
 package main
 ```
 
-Lo interesante de la organización por paquetes es que podemos importarlos a otros documento GO. El lenguaje de programación GO cuenta con bastantes paquetes estándar que ya vienen incluidos en el propio instalador que también puedes ser importados. Por ejemplo, podemos importar el paquete fmt que nos permitiría escribir textos en consola.
+Lo interesante de la organización por paquetes es que **puedes importarlos a otros proyectos GO.** El lenguaje de programación GO cuenta con bastantes paquetes estándar que ya vienen incluidos en el propio instalador que también puedes ser importados. Por ejemplo, podemos importar el paquete fmt que nos permitiría escribir textos en consola.
 
 ```go
 import "fmt"
@@ -297,24 +303,26 @@ import "fmt"
 
 ## Convención de nomenclaturas
 
-Cuando hablamos de convención de nomenclaturas nos estamos refiriendo a que los programadores siguen unas reglas de escritura de código que ayuda a que, por ejemplo, en caso de que otra persona tenga que utilizar tu código, le sea más fácil de entender.
-- Los nombres de los paquetes deben ser cortos, no usar guiones y evitar mezclar mayúsculas y minúsculas.
-- Los nombres de las variables y funciones deben ser camelCase (palabras juntas, sin espacios ni guiones, la primera letra de cada palabra en mayúscula excepto la primera. Ejemplo: miNuevaVariable)
+Cuando hablamos de convención de nomenclaturas nos estamos refiriendo a que **los programadores siguen unas reglas de escritura de código** que ayuda a que, por ejemplo, en caso de que otra persona tenga que utilizar tu código, le sea más fácil de entender.
+
+- Los **nombres de los paquetes deben ser cortos**, no usar guiones y evitar mezclar mayúsculas y minúsculas.
+- Los **nombres de las variables y funciones deben ser camelCase** (palabras juntas, sin espacios ni guiones, la primera letra de cada palabra en mayúscula excepto la primera. Ejemplo: miNuevaVariable)
 
 ## Comentarios
 
-Los comentarios son líneas de código que los programadores que revisen directamente el código podrán ver, pero que una vez el programa se compile y ejecute, serán ignoradas.
+Los comentarios son líneas de código que los programadores que revisen el código podrán ver, pero que una vez el programa se compile y ejecute, serán ignoradas.
 
-El objetivo de escribir comentarios es dejar explicado el funcionamiento del código. Usar comentarios está considerado como una muy buena práctica.
+El objetivo de escribir comentarios es **dejar explicado el funcionamiento del código.**
+
+> [!TIP]
+> Usar comentarios está considerado como una muy buena práctica.
 
 No solo es útil por si en un futuro otro programador tiene que revisar tu código, si no que si pasado un tiempo tienes que revisar tu propio código te ayudara a recordar de una manera rápida y simple que hacía cada cosa.
 
 ```go
-# Comentario en línea
 //Esto es un comentario de línea
 ```
 ```go
-# Comentario en bloque
 /*Esto es un comentario
 en bloque de varias lineas */
 ```
@@ -325,11 +333,11 @@ Durante la creación del código estarás obligado a usar distintos tipos de dat
 
 ### - Enteros -
 
-El tipo de dato entero sería lo que comúnmente conocemos como un número normal. (1, 2 3, etc).
+El tipo de dato entero sería lo que comúnmente conocemos como **un número normal. (1, 2 3, etc).**
 
-Los tipos de datos enteros que existen son: int8, int16, int32, int64, uint8, uint16, uint32 y uint64.
+> Los tipos de datos enteros que existen son: **int8, int16, int32, int64, uint8, uint16, uint32 y uint64.**
 
-Cada uno de ellos ocupa una cierta capacidad de espacio en memoria y cuanto más ocupe, más alto será el rango de valores que permite manejar.
+Cada uno de ellos ocupa una cantidad de espacio en memoria y cuanto más ocupe, más alto será el rango de valores que permite manejar.
 
 | Tipo    | Tamaño  | Rango                                      |
 |---------|---------|--------------------------------------------|
@@ -342,7 +350,8 @@ Cada uno de ellos ocupa una cierta capacidad de espacio en memoria y cuanto más
 | uint32  | 4 bytes | 0 to 4,294,967,295                         |
 | uint64  | 8 bytes | 0 to 18,446,744,073,709,551,615            |
 
-Por convenio se usa siempre (salvo casos muy puntuales) el tipo int
+> [!NOTE]  
+> Por convenio se usa siempre (salvo casos muy puntuales) el tipo int.
 
 ```go
 var x int = 10
@@ -354,9 +363,9 @@ var x int = 10
 
 ### - Flotantes -
 
-El tipo de dato flotante sería lo que comúnmente conocemos como un número decimal. (1.5, 2.8, etc).
+El tipo de dato flotante sería lo que comúnmente conocemos como **un número decimal. (1.5, 2.8, etc).**
 
-Los tipos de datos flotantes que existen son: float32 y float64.
+> Los tipos de datos flotantes que existen son: float32 y float64.
 
 Cada uno de ellos ocupa una cierta capacidad de espacio en memoria y cuanto más ocupe, más alto será el rango de valores que permite manejar.
 
@@ -365,31 +374,34 @@ Cada uno de ellos ocupa una cierta capacidad de espacio en memoria y cuanto más
 | float32  | 4 bytes | -3.4028234663852886e+38 to 3.4028234663852886e+38          |
 | float64  | 8 bytes | -1.7976931348623157e+308 to 1.7976931348623157e+308        |
 
-El más usado por regla general es el tipo float64
+> [!NOTE]  
+> El más usado por regla general es el tipo float64.
 
 ### - Booleanos -
 
-En programación, los booleanos son un tipo de dato fundamental utilizado para almacenar valores lógicos. En Go, específicamente, el tipo de dato booleano puede tomar uno de dos valores: true (verdadero) o false (falso). Estos valores son esenciales para controlar la lógica en los programas y para tomar decisiones basadas en condiciones.
+En programación, los booleanos son un tipo de dato fundamental utilizado para almacenar **valores lógicos.** El tipo de dato booleano puede tomar uno de dos valores: **true (verdadero) o false (falso).** Estos valores son esenciales para controlar la lógica en los programas y para tomar decisiones basadas en condiciones.
 
 ```go
 var esVerdadero bool = true
+var esFalso bool = false
 ```
 
 ### - Strings -
 
-En el mundo de la programación, un "string" no es más que una secuencia de caracteres. Para entenderlo mejor, imagina que una cadena de texto es como una línea de letras, números y símbolos.
+En el mundo de la programación, un "string" no es más que **una secuencia de caracteres.**
 
-En Go, puedes crear una cadena de texto usando la palabra clave var y luego asignarle tu mensaje entre comillas
+> Para entenderlo mejor, imagina que una cadena de texto es como una línea de letras, números y símbolos.
+
+Puedes crear una cadena de texto usando la **palabra clave var y luego asignarle tu mensaje entre comillas.**
 
 ```go
 var miCadena string = "Hola, mundo!"
 ```
+> En este código, estamos diciendo: "Vamos a tener una cadena de texto llamada miCadena, y le daremos el valor de 'Hola, mundo!'.
 
-En este código, estamos diciendo: "Vamos a tener una cadena de texto llamada miCadena, y le daremos el valor de 'Hola, mundo!'.
+El tipo de dato string es uno de los más importantes, además, **permite ser manipulado de múltiples formas:**
 
-El tipo de dato string es uno de los más importantes, además, permite ser manipulado de múltiples formas:
-
-Concatenación de Cadenas: Imagina que quieres unir dos mensajes. Puedes hacerlo usando el símbolo +:
+- **Concatenación de Cadenas:** Imagina que quieres unir dos mensajes. Puedes hacerlo usando el símbolo +:
 
 ```go
 var saludo = "Hola, "
@@ -397,31 +409,28 @@ var nombre = "usuario"
 var mensaje = saludo + nombre
 ```
 
-Longitud de una Cadena: Un string es al fin y al cabo un conjunto de caracteres por lo que podemos saber su longitud contando, para ello se usa la función len():
+- **Longitud de una Cadena:** Un string es al fin y al cabo un conjunto de caracteres por lo que podemos saber su longitud contando, para ello se usa la función len():
 
 
 ```go
-
 // En este caso, longitud sería 8.
 var palabra = "elefante"
 var longitud = len(palabra)
 
 ```
 
-En este caso, longitud sería 8.
+- **Obtener un Carácter de una Cadena:** De igual manera que puedes contar la longitud de caracteres de un string,  puedes hacer referencia al carácter que quieras de la cadena utilizando corchetes y el número que represente su posición:
 
-Obtener un Carácter de una Cadena: De igual manera que puedes contar la longitud de caracteres de un string,  puedes hacer referencia al carácter que quieras de la cadena utilizando corchetes y el número que represente su posición:
-
+```go
 // En este caso, primerCaracter sería "H", ya que en la posición 0 de la cadena está la letra "H".
 var miCadena = "Hola, mundo!"
 var primerCaracter = miCadena[0]
 
 ```
 
-Conversión a Mayúsculas o Minúsculas: Es posible manipular el string y convertir todos los caracteres a mayúsculas o a minúsculas
+- **Conversión a Mayúsculas o Minúsculas:** Es posible manipular el string y convertir todos los caracteres a mayúsculas o a minúsculas
 
 ```go
-
 // En este caso, mensajeMayusculas sería "HOLA, MUNDO!" y mensajeMinusculas sería "hola, mundo!"
 var mensaje = "Hola, mundo!"
 var mensajeMayusculas = strings.ToUpper(mensaje)
@@ -429,7 +438,7 @@ var mensajeMinusculas = strings.ToLower(mensaje))
 
 ```
 
-Buscar una cadena de caracteres dentro de un string: Se puede dar el caso de que el string sea una frase y quieras saber si la frase contiene alguna palabra o letra en particular, pues tambien es posible conseguirlo.
+- **Buscar una cadena de caracteres dentro de un string:** Se puede dar el caso de que el string sea una frase y quieras saber si la frase contiene alguna palabra o letra en particular, pues tambien es posible conseguirlo.
 
 ```go
 
@@ -439,42 +448,37 @@ var contieneHola = strings.Contains(mensaje, "Hola")
 
 ```
 
-
-
-
 ## Operadores
 ### - Operadores aritméticos -
 
-Los operadores aritméticos son aquellos que permiten realizar operaciones matemáticas entre números.
+Los operadores aritméticos son aquellos que **permiten realizar operaciones matemáticas entre números.**
 
-- Suma (+): Permite sumar dos valores
+- **Suma (+):** Permite sumar dos valores
 ```go
 resultado = 5 + 3 // resultado será 8
 ```
 
-- Resta (-): Permite restar el segundo valor al primero
+- **Resta (-):** Permite restar el segundo valor al primero
 ```go
 resultado = 5 - 3 // resultado será 2
 ```
 
-- Multiplicación (*): Permite multiplicar dos valores
+- **Multiplicación (*):** Permite multiplicar dos valores
 ```go
-go versión
+resultado = 5 * 3  // resultado será 15
 ```
 
-resultado = 5 * 3  // resultado será 15
-
-- Division (/): Permite dividir el primer valor por el segundo
+- **Division (/):** Permite dividir el primer valor por el segundo
 ```go
 resultado = 10 / 2 // resultado será 5
 ```
 
-- Modulo (%): El resultado es el resto de la division del primer valor por el segundo
+- **Modulo (%):** El resultado es el resto de la division del primer valor por el segundo
 ```go
 resultado = 10 % 3 // resultado será 1
 ```
 
-- Incremento (+=) y decremento (-=): Realiza el incremento o decremento de un valor en la cantidad que le indiquemos.
+- **Incremento (+=) y decremento (-=):** Realiza el incremento o decremento de un valor en la cantidad que le indiquemos.
 ```go
 contador = 5
 contador += 1   // incrementa el contador en 1
@@ -483,65 +487,61 @@ contador -= 2   // decrementa el contador en 2
 
 ### - Operadores logísticos -
 
-Los operadores lógicos sirven para realizar operaciones de lógica booleana.
+Los operadores lógicos sirven para realizar **operaciones de lógica booleana.** Se debe coloca el operador entre dos expresiones o condiciones y se evalúa dependiendo del operador.
 
-Se coloca el operador entre dos expresiones o condiciones y se evalúa dependiendo del operador.
-
-- AND (&&): Evalúa que ambas expresiones son verdaderas, en caso de serlo devuelve verdadero y en caso contrario falso.
-Traducido al lenguaje humano significa “y”.
+- **AND (&&):** Evalúa que ambas expresiones son verdaderas, en caso de serlo devuelve verdadero y en caso contrario falso. Traducido al lenguaje humano significa “y”.
 ```go
 resultado = (5 > 3) && (4 < 7)  // Se cumplen ambas expresiones por lo que el resultado será verdadero
 ```
 
-- OR (| |): Evalúa que alguna de las expresiones sean verdaderas, en caso de serlo devuelve verdadero y en caso contrario falso. Traducido al lenguaje humano significaría “o”.
-
+- **OR (| |):** Evalúa que alguna de las expresiones sean verdaderas, en caso de serlo devuelve verdadero y en caso contrario falso. Traducido al lenguaje humano significaría “o”.
 
 ```go
 resultado = (5 > 3) || (4 > 7)  // Se cumple al menos una expresión por lo que el resultado será verdadero
 ```
 
-- NOT (!): Niega el valor real de la expresión, por lo que si él fuera una expresión verdadera devolvería falso y si fuera una expresión falsa devolvería verdadero.
+- **NOT (!):** Niega el valor real de la expresión, por lo que si él fuera una expresión verdadera devolvería falso y si fuera una expresión falsa devolvería verdadero.
 ```go
 resultado = !(5 > 3)  // La expresión sería verdadera pero al negarla el resultado será falso
 ```
 
 ### - Operadores de comparación -
 
-Los operadores de comparación sirven para comparar dos valores y devolver un resultado booleano dependiendo del operador.
+Los operadores de comparación sirven para **comparar dos valores y devolver un resultado booleano dependiendo del operador.**
 
-- Igual a (==): Compara dos valores y si son iguales devuelve verdadero
+- **Igual a (==):** Compara dos valores y si son iguales devuelve verdadero
 ```go
 resultado = (5 == 5)  // Ambos valores son iguales por lo que el resultado será verdadero
 ```
 
-- Distinto a (!=): Compara dos valores y si son distintos el resultado será verdadero
+- **Distinto a (!=):** Compara dos valores y si son distintos el resultado será verdadero
 ```go
 resultado = (5 != 3)  // Los valores son distintos por lo que el resultado será verdadero
 ```
 
-- Mayor que (>): Compara ambos valores y si el primero es mayor que el resultado será verdadero, de lo contrario sera falso
+- **Mayor que (>):** Compara ambos valores y si el primero es mayor que el resultado será verdadero, de lo contrario sera falso
 ```go
 resultado = (5 > 3)  // El primer valor es mayor que el segundo, por lo que el resultado será verdadero
 ```
 
-- Menor que (<): Compara ambos valores y si el primero es menor que el segundo el resultado será verdadero, de lo contrario será falso.
+- **Menor que (<):** Compara ambos valores y si el primero es menor que el segundo el resultado será verdadero, de lo contrario será falso.
 ```go
 resultado = (5 < 3)  // El primer valor es mayor que el segundo por lo que el resultado será falso
 ```
 
-- Mayor o igual que (>=): Compara ambos valores y en caso de que el primero sea mayor o igual que el segundo el resultado será verdadero, de lo contrario será falso
+- **Mayor o igual que (>=):** Compara ambos valores y en caso de que el primero sea mayor o igual que el segundo el resultado será verdadero, de lo contrario será falso
 ```go
 resultado = (5 >= 5)  // El primer valor es mayor o igual que el segundo valor por lo que el resultado será verdadero
 ```
 
-- Menor o igual que (<=):Compara ambos valores y en caso de que el primero sea menor o igual que el segundo el resultado será verdadero, de lo contrario será falso
+- **Menor o igual que (<=):** Compara ambos valores y en caso de que el primero sea menor o igual que el segundo el resultado será verdadero, de lo contrario será falso
 ```go
 resultado = (5 <= 3)  // El primer valor es mayor que el segundo valor por lo que el resultado será falso
 ```
 
 ---
 # Variables
-[Volver al indice](#indice)
+[Volver al indice :arrow_heading_up:](#indice)
 
 Es muy importante tener claro el concepto de variable, de lo contrario el resto de conceptos más avanzados serán imposibles de manejar porque prácticamente todos ellos hacen uso de estas variables.
 
