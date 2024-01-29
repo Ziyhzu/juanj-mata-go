@@ -1,7 +1,7 @@
 ---
 title: GO
 created: '2024-01-14T15:21:23.680Z'
-modified: '2024-01-28T23:33:24.553Z'
+modified: '2024-01-29T00:07:54.922Z'
 ---
 
 # GO
@@ -56,9 +56,11 @@ modified: '2024-01-28T23:33:24.553Z'
     - [- While y do while -](#--while-y-do-while--)
 - [Funciones](#funciones)
 - [Structs](#structs)
-    - [Seccion1](#seccion1)
-    - [Seccion2](#seccion2)
-      - [Seccion2.1](#seccion21)
+- [Programación Orientada a Objetos (POO)](#programación-orientada-a-objetos-poo)
+  - [Programación Orientada a Objetos generica](#programación-orientada-a-objetos-generica)
+  - [Programación Orientada a Objetos en GO](#programación-orientada-a-objetos-en-go)
+- [CRUD](#crud)
+  - - [CRUD en GO](#crud-en-go)
 
 <div style="page-break-after: always;"></div>
 
@@ -1068,12 +1070,246 @@ fmt.Println("Altura:", miPersona.Altura)
 # Programación orientada a objetos (POO)
 [Volver al indice :arrow_heading_up:](#indice)
 
+La programación orientada a objetos, abreviando, **POO**, es uno de los conceptos más importantes dentro de cualquier lenguaje de programación.
+
+Existe unos conceptos genericos a la hora de hablar de la POO, pero **GO no sigue al pie de la letra dichos conceptos genericos**, por esa razón antes de empezar de la POO de GO lo más adecuado es hablar de como suele ser la POO de normalmente.
+
+## Programación orientada a objetos generica
+
+La programación orientada a objetos es un **paradigma de programación que busca convertir objetos del mundo real en códigos de programación de manera abstracta.**
+
+Vamos a usar de ejemplo un coche. Imagínate que quieres escribir un código de programación sobre un objeto coche, pues podrías escribir un código que hiciera referencia a las **características físicas del coche (propiedades)** y a las **acciones que este puede realizar (métodos).**
+
+- **Abstracción y Clases**
+
+La abstracción es el concepto de **crear clases que representen entidades abstractas en código de programación.** Una **clase es una plantilla que define las características y el comportamiento que tendrá un objeto.** Una forma simple de explicarlo sería que una clase es un molde con el cual puedes crear objetos que representan cosas de la vida real.
+
+```go
+public class Coche {
+    // Atributos (características)
+    String marca;
+    String modelo;
+    int año;
+
+    // Métodos (comportamientos)
+    public void arrancar() {
+        System.out.println("El coche ha arrancado.");
+    }
+
+    public void detener() {
+        System.out.println("El coche se ha detenido.");
+    }
+}
+```
+
+- **Objeto**
+
+Una vez ya tienes una clase creada, puedes usarla para generar objetos, que **son instancias de la clase**. En el ejemplo anterior de coche, puedes crear una instancia de la clase y llamarla, por ejemplo, “miCoche”. “miCoche” sería un nuevo objeto y puedes definir sus propiedades y métodos.
+
+```go
+// Crear un objeto coche
+Coche miCoche = new Coche();
+
+// Estableces sus propiedades
+miCoche.marca = "Toyota";
+miCoche.modelo = "Corolla";
+miCoche.año = 2022;
+
+// Puedes llamar a sus métodos
+miCoche.arrancar();
+miCoche.detener();
+```
+- **Herencia**
+
+La herencia de clases permite que **una clase herede las características y las acciones de otra clase.** Tiene cierta similitud a como sería en la vida real, una clase padre puede heredar sus características y habilidades a una clase hija. La herencia suele usarse cuando una clase tiene características muy genéricas y quieres crear una clase más especifica que las compartan. Por ejemplo, si tienes la clase padre coche, la cual puede hacer referencia a muchos tipos de coches, y creas la clase hija coche deportivo. El coche tiene ruedas, puertas y otras cosas muy genéricas, pues si creas la clase coche deportivo que herede de coche, el coche deportivo tendrá las mismas características genéricas, pero además se le podrán agregar otras nuevas exclusivas de él.
+
+La palabra clave para que una clase herede de otra es extends
+
+```go
+public class CocheDeportivo extends Coche {
+    // Nuevas características específicas de coches deportivos
+    boolean esDeportivo = true;
+}
+```
+> En este ejemplo, CocheDeportivo tendrá, aunque no se muestre a simple vista, todas las propiedades y métodos de coche, además de los suyos propios.
+
+- **Polimorfismo**
+
+El polimorfismo significa **“muchas formas”** y se refiere a que **un objeto puede comportarse de distintas formas dependiendo del contexto.**
+
+Se trata de un concepto difícil de explicar, pero con un ejemplo práctico se entiende mucho mejor. Supón que tienes una clase coche y dicha clase tiene el método arrancar() que al llamarlo muestra por pantalla el mensaje “Arrancando el coche”:
+
+```go
+public class Coche {
+    public void arrancar() {
+        System.out.println("Arrancando el coche");
+    }
+}
+```
+
+El polimorfismo permite que, por ejemplo, si dos clases heredan de coche, lo que significaría que heredan el método arrancar() ambas, pero el método es sobreescrito por cada clase y hacen un uso único de él.
+
+```go
+public class CocheElectrico extends Coche {
+    @Override
+    public void arrancar() {
+        System.out.println("Arrancando el coche eléctrico");
+    }
+}
+
+public class CocheGasolina extends Coche {
+    @Override
+    public void arrancar() {
+        System.out.println("Arrancando el coche de gasolina");
+    }
+}
+```
+> La clase Coche Eléctrico sobreescribe el método y cuando haga uso de él lo que se mostrara por pantalla es “Arrancando el coche eléctrico”,  mientras que la clase coche Gasolina también sobreescribe el método y en su caso lo que se mostraría por pantalla es “Arrancando el coche de gasolina”
+
+- **Encapsulamiento**
+
+El encapsulamiento se usa cuando queremos **darle privacidad a una clase**, es decir, se refiere a la **ocultación de los detalles internos de una clase, protegiendo sus atributos.**
+
+A la hora de crear una clase se debe definir quienes tendrán acceso a sus atributos y características internas. **No es seguro que una clase sea pública ya que cualquiera podría modificarla** y eso provocaría que también cambien los objetos que se instancien de ella.  Para evitarlo se suelen poner privadas y crear unos métodos especiales que son los encargados de obtener y modificar los atributos y características internas:
+
+- **Getter y setter**
+
+Los métodos públicos getter y setter son un estándar que se usa cuando una clase está encapsulada y **permite un acceso controlado y aplicar lógica adicional** si es necesario.
+
+```go
+public class Coche {
+    private String marca;
+    private String modelo;
+    private int año;
+
+    // Métodos getters y setters
+    public String getMarca() {
+        return marca;
+    }
+
+    public void setMarca(String marca) {
+        this.marca = marca;
+    }
+}
+```
+
+## Programación orientada a objetos en GO
+
+La razón de haber hablado de la POO desde un punto de vista estándar y no hablar directamente de la POO en GO es porque aunque es un lenguaje de programación que incluye características de la POO, **tiene un enfoque diferente en comparación con otros lenguajes que la usan de manera más tradicional.**
+
+- **Abstracción. Structs en lugar de Clases**
+
+Podemos generar códigos que representen de manera abstracta cosas de la vida real, pero **en GO no existen las clases** como en el resto de lenguajes de programación con POO, **en su lugar se hace uso de los Structs**, de los cuales ya se habló anteriormente.
+
+Puedes crear un Struct para definir lo que en la POO estándar sería las propiedades de la clase. Para generar los métodos se hace uno de funciones.
+
+```go
+type Coche struct {
+    Modelo string
+    Anio   int
+    Velocidad int
+}
+
+func (c *Coche) Arrancar() {
+    fmt.Println("El coche", c.Modelo, "ha arrancado.")
+}
+```
+> De esta manera estamos definiendo lo que en la POO estándar sería una clase coche con sus características y tu método “arrancar()
 
 
----
-# CRUD
-[Volver al indice :arrow_heading_up:](#indice)
+- **Encapsulamiento usando paquetes**
+
+En el apartado “Paquetes e importaciones” se explicó que GO se organiza en paquetes que ayudaban a su gestión y modularización. Gracias a este concepto es posible crear **un Struct con sus características y métodos, almacenarlo en un paquete y decidir que partes serán o no visibles fuera del paquete.** Si el nombre del identificador comienza con una letra mayúscula, es exportado y visible fuera del paquete, pero si el identificador comienza con una letra minúscula, es privado y solo es visible dentro del paquete en el que está definido.
+
+```go
+package automovil
+
+type Coche struct {
+    Modelo    string // mayuscula (puede ser accedido desde fuera del paquete)
+    anio      int    // minuscula (privado, solo accesible dentro del paquete)
+    velocidad int    // minuscula (privado, solo accesible dentro del paquete)
+}
+```
+
+- **Composición de tipos en lugar de herencia**
+
+**En GO no existe la herencia**, pero se permite crear **nuevos Structs o tipos componiéndolos de tipos ya existentes** incluyéndolos como campos en la nueva estructura.
+
+```go
+// Vehiculo es un tipo base
+type Vehiculo struct {
+    Marca  string
+    Modelo string
+}
+
+// Coche es un tipo que compone Vehiculo
+type Coche struct {
+    Vehiculo
+    Puertas int
+}
+
+func main() {
+    // Crear una instancia de Coche
+    miCoche := Coche{
+        Vehiculo: Vehiculo{
+            Marca:  "Toyota",
+            Modelo: "Camry",
+        },
+        Puertas: 4,
+    }
+```
+
+> En este ejemplo, Coche tiene todos los campos de Vehiculo, lo cual simularía la herencia, y además tiene su propio campo Puertas. Esto se conoce como composición de tipos.
+
+- **Polimorfismo a través de interfaces**
+
+En GO **se puede lograr el polimorfismo a través de interfaces**. Cuando se crea una interface lo que se define es un conjunto de métodos y cualquier Struct o tipo que implemente esos métodos significa que está implementando esa interfaz.
+
+Supongamos que tenemos una interfaz llamada Conductor con un método Conducir:
+
+```go
+type Conductor interface {
+    Conducir()
+}
+```
+
+Ahora, creamos dos tipos diferentes: CocheNormal y CocheDeportivo. Ambos implementan el método Conducir:
+
+```go
+type CocheNormal struct {
+    Modelo string
+}
+
+func (c CocheNormal) Conducir() {
+    fmt.Println("Conduciendo un coche normal:", c.Modelo)
+}
+
+type CocheDeportivo struct {
+    Modelo string
+}
+
+func (c CocheDeportivo) Conducir() {
+    fmt.Println("Conduciendo un coche deportivo:", c.Modelo)
+}
+```
+
+La función RealizarViaje toma un parámetro del tipo Conductor, que significa que puede recibir cualquier tipo que implemente la interfaz Conductor.
+
+```go
+func RealizarViaje(c Conductor) {
+    c.Conducir()
+}
+```
+
+Aunque RealizarViaje espera un Conductor, puede trabajar con diferentes tipos de coches sin necesidad de cambiar su implementación. Esto es polimorfismo en acción: tratamos diferentes tipos de coches de manera uniforme a través de la interfaz Conductor.
+
+```go
+cocheNormal := CocheNormal{Modelo: "Sedan"}
+cocheDeportivo := CocheDeportivo{Modelo: "Deportivo"}
+
+RealizarViaje(cocheNormal)    // Conduce un coche normal
+RealizarViaje(cocheDeportivo) // Conduce un coche deportivo
+```
 
 ---
----
----
+
