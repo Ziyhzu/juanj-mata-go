@@ -1,7 +1,7 @@
 ---
 title: GO
 created: '2024-01-14T15:21:23.680Z'
-modified: '2024-01-29T01:12:01.954Z'
+modified: '2024-01-29T06:02:29.955Z'
 ---
 
 # GO
@@ -28,6 +28,7 @@ modified: '2024-01-29T01:12:01.954Z'
     - [- Extensiones recomendadas -](#--extensiones-recomendadas--)
 - [Hola Mundo](#hola-mundo)
 - [Conceptos basicos](#conceptos-basicos)
+  - [Concurrencia](#concurrencia)
   - [Paquetes e importaciones](#paquetes-e-importaciones)
   - [Convención de nomenclaturas](#convención-de-nomenclaturas)
   - [Comentarios](#comentarios)
@@ -36,9 +37,10 @@ modified: '2024-01-29T01:12:01.954Z'
     - [- Flotantes -](#--flotantes--)
     - [- Booleanos -](#--booleanos--)
     - [- Strings -](#--strings--)
+    - [- Conversión entre tipos de datos -](#--conversión-entre-tipos-de-datos--)
   - [Operadores](#operadores)
     - [- Operadores aritméticos -](#--operadores-aritméticos--)
-    - [- Operadores logísticos -](#--operadores-logísticos--)
+    - [- Operadores lógicos -](#--operadores-lógicos--)
     - [- Operadores de comparación -](#--operadores-de-comparación--)
 - [Variables](#variables)
   - [Declaración y reasignación](#declaración-y-reasignación)
@@ -47,6 +49,8 @@ modified: '2024-01-29T01:12:01.954Z'
     - [- Variables globales -](#--variables-globales--)
 - [Constantes](#constantes)
 - [Arrays](#arrays)
+<div style="page-break-after: always;"></div>
+
 - [Estructuras de control](#estructuras-de-control)
   - [Condicionales](#condicionales)
     - [- If, else y else if -](#--if-else-y-else-if--)
@@ -60,9 +64,7 @@ modified: '2024-01-29T01:12:01.954Z'
   - [Programación Orientada a Objetos generica](#programación-orientada-a-objetos-generica)
   - [Programación Orientada a Objetos en GO](#programación-orientada-a-objetos-en-go)
 - [CRUD](#crud)
-  - - [CRUD en GO](#crud-en-go)
-
-<div style="page-break-after: always;"></div>
+  - [CRUD en GO](#crud-en-go)
 
 ---
 # Enlaces de interes de GO
@@ -76,6 +78,9 @@ modified: '2024-01-29T01:12:01.954Z'
 - [Ejemplos](https://gobyexample.com/)
 
 ---
+
+<div style="page-break-after: always;"></div>
+
 # Introducción
 [Volver al indice :arrow_heading_up:](#indice)
 
@@ -108,6 +113,9 @@ Go es un lenguaje de programación desarrollado por Google que nació con el pri
 >> **Es multiprocesador y concurrente:** Permite ejecutar múltiples procesos paralelamente en cada uno de los procesadores del equipo.
 
 ---
+
+<div style="page-break-after: always;"></div>
+
 # Instalación
 [Volver al indice](#indice)
 
@@ -139,6 +147,8 @@ go versión
 ```
 
 - Debería aparecer un **mensaje indicándote la versión instalada**, que en este caso debería ser la 1.21.6.
+
+<div style="page-break-after: always;"></div>
 
 ### - Instalación de GO en Linux -
 
@@ -256,6 +266,8 @@ sudo apt install code
 - También sería recomendable que instalaras la extensión **“Spanish Languaje Pack for Visual Studio Code”** para que tengas el IDE en español.
 
 ---
+<div style="page-break-after: always;"></div>
+
 # Hola Mundo
 [Volver al indice :arrow_heading_up:](#indice)
 
@@ -284,23 +296,80 @@ func main() {
 - El resultado será que se muestre por consola el mensaje “Hola mundo”.
 
 ---
+<div style="page-break-after: always;"></div>
+
 # Conceptos basicos
 [Volver al indice :arrow_heading_up:](#indice)
 
 Ya sabes que es GO y tienes listo el entorno para empezar a usarlo, pero antes **es importante entender unos conceptos básicos.**
+
+## Concurrencia
+
+La concurrencia es un concepto importante a tener en cuenta ya que **es uno de los aspectos fundamentales de GO**, el cual permite la creación de programas concurrentes de manera fácil y eficiente.
+
+Lo más común es que un programa siga un camino a la hora de ejecutarse y hasta que no finaliza una tarea no continúa con la siguiente. La concurrencia **permite que varias tareas se ejecuten simultáneamente.**
+
+Go introduce el concepto de **goroutines**, que son **unidades de concurrencia** que permiten que las funciones se ejecuten de manera concurrente. A la hora de gestionar, por ejemplo, un servidor, la concurrencia es algo clave para mejorar la eficiencia.
+
 
 ## Paquetes e importaciones
 
 Los programas escritos en lenguaje GO **se organizan en paquetes** que ayudan a gestionar y modular el código. Siempre que empieces un proyecto en GO el **primer archivo .go que crees será el paquete principal main.** Cada archivo .go que crees **debe tener en su primera línea de código el nombre del paquete al que pertenece.**
 
 ```go
+//archivo main.go
 package main
+ 
+func main() {
+    //Cuerpo del codigo
+}
 ```
 
-Lo interesante de la organización por paquetes es que **puedes importarlos a otros proyectos GO.** El lenguaje de programación GO cuenta con bastantes paquetes estándar que ya vienen incluidos en el propio instalador que también puedes ser importados. Por ejemplo, podemos importar el paquete fmt que nos permitiría escribir textos en consola.
+Uno de los puntos interesantes de la organización por paquetes es que **puedes importar paquetes te has creado a otros archivos GO y usarlos.** 
 
 ```go
-import "fmt"
+// Archivo geometry.go
+package geometry
+
+import "math"
+
+func AreaOfCircle(radius float64) float64 {
+   return math.Pi * radius * radius
+}
+
+```
+
+```go
+// En el archivo main.go importas el paquete geometry
+package main
+
+import (
+   "fmt"
+   "Paquete/geometry"
+)
+
+func main() {
+   radius := 5.0
+   area := geometry.AreaOfCircle(radius)
+   fmt.Printf("El área del círculo es: %.2f\n", area)
+}
+```
+
+GO cuenta con bastantes **paquetes estándar que ya vienen incluidos en el propio instalador** que también puedes ser importados. Por ejemplo, podemos importar el paquete fmt que nos permitiría escribir textos en consola y el paquete math que sirve para realizar calculos matematicos.
+
+```go
+//archivo main.go
+
+package main
+
+import (
+   "fmt"
+   "math"
+)
+ 
+func main() {
+    //Cuerpo del codigo
+}
 ```
 
 ## Convención de nomenclaturas
@@ -308,7 +377,27 @@ import "fmt"
 Cuando hablamos de convención de nomenclaturas nos estamos refiriendo a que **los programadores siguen unas reglas de escritura de código** que ayuda a que, por ejemplo, en caso de que otra persona tenga que utilizar tu código, le sea más fácil de entender.
 
 - Los **nombres de los paquetes deben ser cortos**, no usar guiones y evitar mezclar mayúsculas y minúsculas.
-- Los **nombres de las variables y funciones deben ser camelCase** (palabras juntas, sin espacios ni guiones, la primera letra de cada palabra en mayúscula excepto la primera. Ejemplo: miNuevaVariable)
+- Los **nombres de las variables y funciones deben ser camelCase** (palabras juntas, sin espacios ni guiones, la primera letra de cada palabra en mayúscula excepto la primera. Ejemplo: miNuevaVariable).
+```go
+var miNuevaVariable int
+func calcularSuma(a, b int) int {
+    return a + b
+}
+```
+
+- El **nombre de las Interfaces debe comenzar por la letra "I" seguida de camelCase**
+
+```go
+type IConectar interface {
+    Conectar() error
+}
+```
+- El **nombre de las constantes se escriben en mayúsculas y en caso de ser varias palabras, separadas por guiones.**
+
+```go
+const MAX_INT = 100
+```
+
 
 ## Comentarios
 
@@ -324,9 +413,34 @@ No solo es útil por si en un futuro otro programador tiene que revisar tu códi
 ```go
 //Esto es un comentario de línea
 ```
+
 ```go
 /*Esto es un comentario
 en bloque de varias lineas */
+```
+
+**Generación de documentación con Godoc**
+
+En GO existe una herramienta llamada **“godoc”** que sirve para generar **documentación automática** sobre el proyecto a partir de los comentarios que se van escribiendo.
+
+Al ejecutar la herramienta **se extrae automáticamente todos los comentarios y genera una documentación** con todos ellos.
+
+Para ejecutar “godoc” debes situarte en el directorio raíz de tu proyecto GO y escribir por consola este comando:
+
+```go
+godoc -http :PUERTO
+```
+
+> En “PUERTO” debes poner un puerto que no esté siendo utilizado para otros servicios de tu ordenador.
+
+Una vez ejecutado el comando podrás acceder a la documentación desde tu navegador ingresando **[http://localhost:PUERTO/pkg/PAQUETE](x)**
+
+> En “PAQUETE” debes escribir de que archivo .go (que debe coincidir con el nombre del paquete) quieres revisar la documentación de los comentarios.
+
+Supongamos que uso el puerto 8080 y quiero revisar la documentación generada en mi archivo principal main.go
+
+```go
+http://localhost:8080/pkg/main
 ```
 
 ## Tipos de datos
@@ -401,6 +515,8 @@ var miCadena string = "Hola, mundo!"
 ```
 > En este código, estamos diciendo: "Vamos a tener una cadena de texto llamada miCadena, y le daremos el valor de 'Hola, mundo!'.
 
+<div style="page-break-after: always;"></div>
+
 El tipo de dato string es uno de los más importantes, además, **permite ser manipulado de múltiples formas:**
 
 - **Concatenación de Cadenas:** Imagina que quieres unir dos mensajes. Puedes hacerlo usando el símbolo +:
@@ -440,6 +556,8 @@ var mensajeMinusculas = strings.ToLower(mensaje))
 
 ```
 
+<div style="page-break-after: always;"></div>
+
 - **Buscar una cadena de caracteres dentro de un string:** Se puede dar el caso de que el string sea una frase y quieras saber si la frase contiene alguna palabra o letra en particular, pues tambien es posible conseguirlo.
 
 ```go
@@ -447,7 +565,21 @@ var mensajeMinusculas = strings.ToLower(mensaje))
 // En este caso, contieneHola sería true, ya que la cadena contiene la palabra "Hola".
 var mensaje = "Hola, mundo!"
 var contieneHola = strings.Contains(mensaje, "Hola")
+```
 
+### - Conversión entre tipos de datos -
+
+En la mayoría de lenguajes de programación existe la conversación de tipo de datos, es decir, **poder cambiar el tipo de dato a una variable**. Por ejemplo, convertir una variable de tipo entero en tipo flotante.
+
+En GO es posible realizar la conversión de tipos, pero **no se realiza de la misma manera que en otros lenguajes de programación**. Lo común es cambiar el tipo de dato a la variable, pero en Go una vez se le asigna a una variable su tipo de dato no es posible modificarlo.
+
+Para poder realizar la conversión de todas en GO lo que se hace es **guardar el valor de la variable a la que queremos cambiarle el tipo, en una nueva variable y a esa nueva variable asignarle el tipo que queramos.**
+
+```go
+//Tienes una variable entera de valor 10
+var x int = 10
+// float64(x) es la expresión de conversión de tipo que toma el valor de x y lo convierte a float64, creando así una nueva variable “y” de tipo float64.
+var y float64 = float64(x)
 ```
 
 ## Operadores
@@ -458,26 +590,31 @@ Los operadores aritméticos son aquellos que **permiten realizar operaciones mat
 - **Suma (+):** Permite sumar dos valores
 ```go
 resultado = 5 + 3 // resultado será 8
+otroResultado = resultado + 10  // también podemos sumar otro valor
 ```
 
 - **Resta (-):** Permite restar el segundo valor al primero
 ```go
 resultado = 5 - 3 // resultado será 2
+otroResultado = resultado - 8   // también podemos restar otro valor
 ```
 
 - **Multiplicación (*):** Permite multiplicar dos valores
 ```go
 resultado = 5 * 3  // resultado será 15
+otroResultado = resultado * 2   // también podemos multiplicar por otro valor
 ```
 
 - **Division (/):** Permite dividir el primer valor por el segundo
 ```go
 resultado = 10 / 2 // resultado será 5
+otroResultado = resultado / 3   // también podemos dividir por otro valor
 ```
 
 - **Modulo (%):** El resultado es el resto de la division del primer valor por el segundo
 ```go
 resultado = 10 % 3 // resultado será 1
+otroResultado = resultado % 2   // también podemos calcular el módulo respecto a otro valor
 ```
 
 - **Incremento (+=) y decremento (-=):** Realiza el incremento o decremento de un valor en la cantidad que le indiquemos.
@@ -487,25 +624,61 @@ contador += 1   // incrementa el contador en 1
 contador -= 2   // decrementa el contador en 2
 ```
 
-### - Operadores logísticos -
+- **Operaciones combinadas:**  Puedes combinar varios operadores aritméticos en una expresión para realizar cálculos más complejos.
+
+```go
+resultado = (5 + 3) * 2 / (4 - 1)   // resultado será 6
+```
+
+A la hora de realizar operaciones combinadas hay que tener en cuenta el **orden de prioridad** a la hora de hacer los calculos:
+
+**1.) Paréntesis ():** Las operaciones dentro de paréntesis tienen la mayor prioridad.
+
+**2.) Multiplicación *, División /, Módulo %:*** Estos operadores tienen la misma prioridad y se evalúan de izquierda a derecha.
+
+**3.) Suma +, Resta -:** Estos operadores también tienen la misma prioridad y se evalúan de izquierda a derecha.
+
+<div style="page-break-after: always;"></div>
+
+### - Operadores lógicos -
 
 Los operadores lógicos sirven para realizar **operaciones de lógica booleana.** Se debe coloca el operador entre dos expresiones o condiciones y se evalúa dependiendo del operador.
 
 - **AND (&&):** Evalúa que ambas expresiones son verdaderas, en caso de serlo devuelve verdadero y en caso contrario falso. Traducido al lenguaje humano significa “y”.
 ```go
 resultado = (5 > 3) && (4 < 7)  // Se cumplen ambas expresiones por lo que el resultado será verdadero
+resultado2 = (2 == 2) && (10 <= 15)  // Verdadero, ambas expresiones son verdaderas
 ```
 
 - **OR (| |):** Evalúa que alguna de las expresiones sean verdaderas, en caso de serlo devuelve verdadero y en caso contrario falso. Traducido al lenguaje humano significaría “o”.
 
 ```go
 resultado = (5 > 3) || (4 > 7)  // Se cumple al menos una expresión por lo que el resultado será verdadero
+resultado2 = (1 == 0) || (3 != 3)  // Falso, ya que ambas expresiones son falsas
 ```
 
 - **NOT (!):** Niega el valor real de la expresión, por lo que si él fuera una expresión verdadera devolvería falso y si fuera una expresión falsa devolvería verdadero.
+
 ```go
 resultado = !(5 > 3)  // La expresión sería verdadera pero al negarla el resultado será falso
+resultado2 = !(10 == 10)  // Falso, ya que la expresión original es verdadera
 ```
+
+- **Combinación de operadores lógicos:** Es posible combinar varios operadores lógicos para construir expresiones más complejas.
+
+```go
+resultado = (3 < 5) && ((10 == 10) || (8 > 12))  // Verdadero, se cumplen todas las condiciones
+```
+
+A la hora de realizar operaciones lógicas hay que tener en cuenta el **orden de prioridad** de los operadores:
+
+**1.)NOT !**
+
+**2.)OR ||**
+
+**3.)AND &&**
+
+<div style="page-break-after: always;"></div>
 
 ### - Operadores de comparación -
 
@@ -542,6 +715,8 @@ resultado = (5 <= 3)  // El primer valor es mayor que el segundo valor por lo qu
 ```
 
 ---
+<div style="page-break-after: always;"></div>
+
 # Variables
 [Volver al indice :arrow_heading_up:](#indice)
 
@@ -619,6 +794,8 @@ h = “hola”
 error!!!
 ```
 
+<div style="page-break-after: always;"></div>
+
 ## Variables según su ambito
 
 Cuando se habla del ámbito de una variable lo que quiere decir es si **esa variable es accesible en todo el código o solo en una parte específica.**
@@ -657,6 +834,8 @@ func main() {
 > El uso de variables globales se considera una mala práctica de programación.
 
 ---
+<div style="page-break-after: always;"></div>
+
 # Constantes
 [Volver al indice :arrow_heading_up:](#indice)
 
@@ -671,6 +850,8 @@ const PI = 3.14159
 ```
 
 ---
+<div style="page-break-after: always;"></div>
+
 # Arrays
 [Volver al indice :arrow_heading_up:](#indice)
 
@@ -738,6 +919,8 @@ slice = append(slice[:indiceAEliminar])
 ```
 
 ---
+<div style="page-break-after: always;"></div>
+
 # Estructuras de control
 [Volver al indice :arrow_heading_up:](#indice)
 
@@ -775,6 +958,8 @@ if x > 15 {
 }
 ```
 
+<div style="page-break-after: always;"></div>
+
 - La tercera estructura de control condicional es el **else if**, el cual sería como **si añadieras más if a la estructura de control**. Primero se evaluaría el if, en caso de ser falso, se evaluaría el else if y si también es falso, finalmente se llegaría al else. Puedes poner tantos else if como quieras.
 
 ```go
@@ -811,6 +996,8 @@ var x string = "juan"
 	  default: zzz
 	}
 ```
+
+<div style="page-break-after: always;"></div>
 
 ## Bucles
 
@@ -866,13 +1053,10 @@ La principal diferencia entre estos 2 bucles es que el bucle **while solo se eje
 
 ```go
 // Se inicializa la variable con valor 0
-
 // Si se cumple la condición se ejecuta el código, el cual tiene al final un incremento.
-
 // Una vez la variable sea 5 y ya no se cumpla la condición dejara de ejecutarse el bucle.
 
 var i int = 0
-
 for i < 5 {
   XXX
   i++
@@ -883,9 +1067,7 @@ for i < 5 {
 
 ```go
 // Se inicializa la variable con valor 0
-
 // Una vez dentro del bucle se hace la primera iteración obligatoria. Se hace el incremento.
-
 // El bucle se repetirá hasta que la condición se cumpla, momento en el que el break finalizara el bucle.
 
 var j int = 0
@@ -899,6 +1081,9 @@ for {
 ```
 
 ---
+
+<div style="page-break-after: always;"></div>
+
 # Funciones
 [Volver al indice :arrow_heading_up:](#indice)
 
@@ -912,10 +1097,14 @@ func nombreDeLaFuncion(parametro1 tipo, parametro2 tipo) tipoDeRetorno {
     return valorDeRetorno
 }
 ```
->   **func:** Palabra clave para declarar una función.
+    **func:** Palabra clave para declarar una función.
+
     **nombreDeLaFuncion:** El nombre que describe para la función.
+
     **parametro1, parametro2:** Parámetros que la función puede recibir.
+
     **tipoDeRetorno:** Tipo de dato que la función devuelve.
+
     **valorDeRetorno:** Valor que devolvera la función a donde fue invocada.
 
 ```go
@@ -934,6 +1123,8 @@ resultadoSuma := sumar(5, 3)
 
 - **Parámetros y Argumentos:** Al definir una función puedes indicar los valores que la función espera recibir cuando es llamada. Los valores que le pases a la función podran ser usados dentro de esta. Los valores reales que pasas a una función se llaman argumentos.
 
+<div style="page-break-after: always;"></div>
+
 ```go
 func saludar(nombre string) {
 // Cuerpo de la función
@@ -945,9 +1136,27 @@ saludar("Juan")
 
 - **Ámbito de las Variables:** Este concepto ya fue explicado en un punto anterior, pero no viene mal recordarlo.  En el caso de que una variable se genere dentro de una función, solo existira dentro de dicha función y una vez finalice la función, desaparecera.
 
+```go
+package main
+
+func suma {
+    // Variables locales dentro de la función suma
+    // Sus ámbitos están limitados a esta función
+    numeroUno = 10
+    numeroDos = 5
+    resultado = numeroUno + numeroDos
+    return resultado
+}
+
+func main() {
+    // La variables numeroUno y numeroDos no son accesibles en la función main
+    // Generaría un error si se intenta acceder a ellas aquí
+}
+```
+
 - **Funciones ya preestablecidas:**
 
-- **fmt.Println() - Imprimir en Consola:**
+**fmt.Println() - Imprimir en Consola:**
 
 > La función Println se utiliza para imprimir en la consola y agrega una nueva línea al final.
 
@@ -960,7 +1169,9 @@ func main() {
     fmt.Println("¡Hola, mundo!")
 }
 ```
-- **fmt.Sprintf() - Formatear Cadenas de Texto:**
+<div style="page-break-after: always;"></div>
+
+**fmt.Sprintf() - Formatear Cadenas de Texto:**
  > La función Sprintf se utiliza para formatear cadenas de texto sin imprimir en la consola.
 
 ```go
@@ -1006,6 +1217,8 @@ func main() {
 }
 ```
 
+<div style="page-break-after: always;"></div>
+
  **len() - Obtener Longitud de Slices y Array:**
 
 > La función len devuelve la longitud de un slice o array.
@@ -1021,7 +1234,35 @@ func main() {
     fmt.Println("La longitud del slice es:", longitud) // Imprimirá: La longitud del slice es: 5
 ```
 
+- **Recursividad:** La recursividad es un concepto en programación donde una función se llama a sí misma, ya sea directa o indirectamente.
+
+> Hay que tener extremo cuidado a la hora de manejar código recursivo ya que si no se define correctamente la condición de salida (también llamada condición base) se generaría un bucle infinito y el programa daría error.
+
+```go
+package main
+
+import "fmt"
+
+func imprimirNumeros(n int) {
+    if n <= 0 {
+        return
+    }
+    imprimirNumeros(n - 1)
+    fmt.Println(n)
+}
+
+func main() {
+    numeroMaximo := 5
+    fmt.Printf("Imprimiendo números del 1 al %d de forma recursiva:\n", numeroMaximo)
+    imprimirNumeros(numeroMaximo)
+}
+```
+> La función "imprimirNumeros" se llama a sí misma de manera recursiva para imprimir los números del 1 al n. La condición base "if n <= 0" detiene la recursividad.
+
+
 ---
+<div style="page-break-after: always;"></div>
+
 # Structs
 [Volver al indice :arrow_heading_up:](#indice)
 
@@ -1053,7 +1294,6 @@ miPersona := Persona{
     Altura: 1.75,
 }
 ```
-> miPersona es una instancia del struct Persona con datos específicos.
 
 - **Acceder a los Datos del Struct**
 
@@ -1067,6 +1307,8 @@ fmt.Println("Altura:", miPersona.Altura)
 > Esto imprimirá en la consola la información asociada a cada compartimento.
 
 ---
+<div style="page-break-after: always;"></div>
+
 # Programación orientada a objetos (POO)
 [Volver al indice :arrow_heading_up:](#indice)
 
@@ -1101,6 +1343,29 @@ public class Coche {
     }
 }
 ```
+
+<div style="page-break-after: always;"></div>
+
+- **Constructor**
+
+Un constructor es un **método especial dentro de una clase** que tiene el mismo nombre que la clase y se utiliza para **inicializar los atributos de un objeto** cuando se crea una instancia de la clase.
+
+```go
+public class Coche {
+    // Atributos (características)
+    String marca;
+    String modelo;
+    int año;
+
+    // Constructor
+    public Coche(String marca, String modelo, int año) {
+        this.marca = marca;
+        this.modelo = modelo;
+        this.año = año;
+    }
+}
+```
+
 
 - **Objeto**
 
@@ -1179,8 +1444,6 @@ Los métodos públicos getter y setter son un estándar que se usa cuando una cl
 ```go
 public class Coche {
     private String marca;
-    private String modelo;
-    private int año;
 
     // Métodos getters y setters
     public String getMarca() {
@@ -1202,6 +1465,8 @@ La razón de haber hablado de la POO desde un punto de vista estándar y no habl
 Podemos generar códigos que representen de manera abstracta cosas de la vida real, pero **en GO no existen las clases** como en el resto de lenguajes de programación con POO, **en su lugar se hace uso de los Structs**, de los cuales ya se habló anteriormente.
 
 Puedes crear un Struct para definir lo que en la POO estándar sería las propiedades de la clase. Para generar los métodos se hace uno de funciones.
+
+<div style="page-break-after: always;"></div>
 
 ```go
 type Coche struct {
@@ -1234,6 +1499,8 @@ type Coche struct {
 - **Composición de tipos en lugar de herencia**
 
 **En GO no existe la herencia**, pero se permite crear **nuevos Structs o tipos componiéndolos de tipos ya existentes** incluyéndolos como campos en la nueva estructura.
+
+<div style="page-break-after: always;"></div>
 
 ```go
 // Vehiculo es un tipo base
@@ -1310,6 +1577,8 @@ cocheDeportivo := CocheDeportivo{Modelo: "Deportivo"}
 RealizarViaje(cocheNormal)    // Conduce un coche normal
 RealizarViaje(cocheDeportivo) // Conduce un coche deportivo
 ```
+
+<div style="page-break-after: always;"></div>
 
 # CRUD
 [Volver al indice :arrow_heading_up:](#indice)
@@ -1395,6 +1664,8 @@ A continuación debes **descargar una librería que necesitaras** para realizar 
 go get -u github.com/go-sql-driver/mysql
 ```
 
+<div style="page-break-after: always;"></div>
+
 - **Proyecto crud**
 
 Debes **crear manualmente un archivo, con el nombre que quieras, pero que tenga la extensión .go**, ahí es donde se escribirá el código del proyecto crud.
@@ -1440,6 +1711,8 @@ func obtenerBaseDeDatos() (*sql.DB, error) {
 	return db, nil
 }
 ```
+
+<div style="page-break-after: always;"></div>
 
 **Función “main”**
 
@@ -1490,6 +1763,8 @@ func main() {
 	}
 }
 ```
+
+<div style="page-break-after: always;"></div>
 
 **Funciones del CRUD**
 
@@ -1591,6 +1866,9 @@ func eliminar(c Contacto) error {
 ```
 
 ---
+
+<div style="page-break-after: always;"></div>
+
 
 ```go
 **CODIGO CRUD COMPLETO**
@@ -1756,4 +2034,10 @@ func eliminar(c Contacto) error {
 	return err
 }
 ```
+
+---
+---
+---
+
+
 
