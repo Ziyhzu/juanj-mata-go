@@ -1,7 +1,7 @@
 ---
 title: GO
 created: '2024-01-14T15:21:23.680Z'
-modified: '2024-01-29T06:02:29.955Z'
+modified: '2024-01-29T06:08:49.353Z'
 ---
 
 # GO
@@ -2034,10 +2034,6 @@ func eliminar(c Contacto) error {
 	return err
 }
 ```
-
----
----
----
 
 
 
