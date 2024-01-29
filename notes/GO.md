@@ -1,7 +1,7 @@
 ---
 title: GO
 created: '2024-01-14T15:21:23.680Z'
-modified: '2024-01-29T00:07:54.922Z'
+modified: '2024-01-29T01:12:01.954Z'
 ---
 
 # GO
@@ -1311,5 +1311,449 @@ RealizarViaje(cocheNormal)    // Conduce un coche normal
 RealizarViaje(cocheDeportivo) // Conduce un coche deportivo
 ```
 
+# CRUD
+[Volver al indice :arrow_heading_up:](#indice)
+
+CRUD es el **acrónimo de “Create” (crear), Read (Leer), Update (Actualizar) y Delete (Borrar).** Este concepto sirve para definir las cuatro operaciones básicas que pueden realizarse en la mayor parte de las bases de datos.
+
+Estas operaciones permiten crear nuevos datos (Create), leer los ya existentes (Read), actualizarlos (Update) y eliminarlos (Delete).
+
+Es una función básica pero al mismo tiempo imprescindible para muchos sistemas de información, ya que **permite realizar tareas básicas de mantenimiento y gestionar los datos de las bases de datos.**
+
+
+## CRUD en GO
+**Para finalizar la documentación se hará una pequeña práctica en la cual se realizara un CRUD usando el lenguaje de programación GO. Será un CRUD básico de una sola entidad y para la conexión a base de datos se usará Mysql.**
+
+Los **pasos previos** antes de iniciar el proyecto son **Instalar GO**, lo cual ya está explicado en uno de los primeros puntos de la documentación e **Instalar Mysql**
+
+- **Instalar Mysql en Windows**
+
+Para instalar Mysql en Windows puedes **descargar el instalador desde la [web oficial](https://dev.mysql.com/downloads/installer/)** Una vez descargado simplemente se debe ejecutar el instalador e ir siguiendo los pasos que se indican. La parte más importante de la instalación es cuando te pide que indiques una contraseña para Mysql, esta será la contraseña que se usara para realizar más tarde la conexión con la base de datos.
+
+- **Instalar Mysql en Linux**
+
+Para instalar mysql en Linux se usarán los siguientes comandos:
+
+```code
+sudo apt update
+sudo apt install mysql-server mysql-client
+```
+
+Una vez tienes instalado Mysql escribe en el terminal los comandos:
+
+```code
+sudo mysql -u root -p
+use mysql;
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'root';
+FLUSH PRIVILEGES;
+exit
+```
+
+Tras realizar estos cambios solo quedaría reiniciar el servicio de mysql y acceder. El usuario y la contraseña serán “root”.
+
+```code
+sudo service mysql restart
+mysql -u root -p
+```
+
+- **Creación de la base de datos**
+
+Para acceder a Mysql se debe abrir un terminal de consola y ejecutar el comando:
+
+```code
+ mysql -u root -p
+ ```
+
+Una vez conectado a Mysql, se procede a crear la base de datos y la entidad a la que realizaremos el CRUD:
+
+```code
+create database if not exists agenda;
+use agenda;
+create table if not exists agenda(
+  id bigint unsigned not null auto_increment,
+  nombre varchar(255) not null,
+  direccion varchar(255) not null,
+  correo_electronico varchar(255) not null,
+  primary key(id)
+);
+```
+
+- **Creación del proyecto en GO e importancia de libreria**
+
+Para empezar se debe **crear una carpeta donde se iniciara el proyecto**. Una vez creada, a través del terminal de comandos, te debes **situar dentro de la carpeta** y ejecutar el siguiente comando **“go mod init <X>”**
+> Por convenio, en la X se suele poner la cuenta de github donde guardaras el proyecto. Suponiendo que tu cuenta de github se llamase “Juan” y quisieras llamar al proyecto “crud” el comando sería:
+
+```go
+go mod init github/juan/crud
+```
+
+Sabrás que el comando ha funcionado y tienes tu directorio de proyecto listo si dentro de la carpeta ha aparecido un archivo llamado **go.mod**,  el cual no debemos tocar.
+
+A continuación debes **descargar una librería que necesitaras** para realizar la conexión con mysql:
+
+```go
+go get -u github.com/go-sql-driver/mysql
+```
+
+- **Proyecto crud**
+
+Debes **crear manualmente un archivo, con el nombre que quieras, pero que tenga la extensión .go**, ahí es donde se escribirá el código del proyecto crud.
+
+Se te va a presentar el código del proyecto paso a paso y al final del todo se facilitará el código completo.
+
+**Importación**
+
+Al inicio **debes importar en el proyecto aquellas librerías que serán necesarias mas adelante**, como son la que te permite interactuar con la base de datos mysql, imprimir mensajes por pantalla y trabajar con la entrada/salida de datos.
+
+```go
+import (
+	"database/sql"
+	"fmt"
+	_ "github.com/go-sql-driver/mysql"
+	"os"
+)
+```
+
+**Creación del Struct Contacto**
+
+El siguiente paso es **crear una estructura de datos** que será la que represente un contacto
+
+```go
+type Contacto struct {
+	Id           	int
+	Nombre       	string
+	Direccion    	string
+	CorreoElectronico string
+}
+```
+
+**Función “obtenerBaseDatos”**
+
+Se crea una función que será la encargada de realizar la **conexión con la base de datos**
+
+```go
+func obtenerBaseDeDatos() (*sql.DB, error) {
+	db, err := sql.Open("mysql", "root:@tcp(127.0.0.1:3306)/agenda")
+	if err != nil {
+    	return nil, err
+	}
+	return db, nil
+}
+```
+
+**Función “main”**
+
+Esta es la **función principal del proyecto.** Es donde estará el menú que te permitirá interactuar con el crud.
+
+```go
+func main() {
+	menu := `¿Qué deseas hacer?
+[1] -- Insertar
+[2] -- Mostrar
+[3] -- Actualizar
+[4] -- Eliminar
+[5] -- Salir
+----->	`
+
+	var eleccion int
+	var c Contacto
+
+	for eleccion != 5 {
+		fmt.Println(menu)
+		fmt.Scanln(&eleccion)
+
+		switch eleccion {
+		case 1:
+			c = leerContacto()
+			if err := insertar(c); err != nil {
+				fmt.Printf("Error insertando: %v\n", err)
+			} else {
+				fmt.Println("Insertado correctamente")
+			}
+		case 2:
+			mostrarContactos()
+		case 3:
+			c = leerContacto()
+			if err := actualizar(c); err != nil {
+				fmt.Printf("Error actualizando: %v\n", err)
+			} else {
+				fmt.Println("Actualizado correctamente")
+			}
+		case 4:
+			c = leerID()
+			if err := eliminar(c); err != nil {
+				fmt.Printf("Error eliminando: %v\n", err)
+			} else {
+				fmt.Println("Eliminado correctamente")
+			}
+		}
+	}
+}
+```
+
+**Funciones del CRUD**
+
+Estas son las **funciones que dan funcionalidad al CRUD y que son llamadas a través del menu de la funcion principal main:** "leerContacto", "leerID", "insertar", "mostrarContacto", "obtenerContactos", "actualizar" y "eliminar":
+
+```go
+func leerContacto() Contacto {
+	var c Contacto
+	fmt.Println("Ingresa el nombre:")
+	fmt.Scanln(&c.Nombre)
+	fmt.Println("Ingresa la dirección:")
+	fmt.Scanln(&c.Direccion)
+	fmt.Println("Ingresa el correo electrónico:")
+	fmt.Scanln(&c.CorreoElectronico)
+	return c
+}
+
+func leerID() Contacto {
+	var c Contacto
+	fmt.Println("Ingresa el ID:")
+	fmt.Scanln(&c.Id)
+	return c
+}
+
+func insertar(c Contacto) error {
+	db, err := obtenerBaseDeDatos()
+	if err != nil {
+		return err
+	}
+	defer db.Close()
+
+	_, err = db.Exec("INSERT INTO agenda (nombre, direccion, correo_electronico) VALUES(?, ?, ?)", c.Nombre, c.Direccion, c.CorreoElectronico)
+	return err
+}
+
+func mostrarContactos() {
+	contactos, err := obtenerContactos()
+	if err != nil {
+		fmt.Printf("Error obteniendo contactos: %v\n", err)
+		return
+	}
+
+	for _, contacto := range contactos {
+		fmt.Println("====================")
+		fmt.Printf("Id: %d\n", contacto.Id)
+		fmt.Printf("Nombre: %s\n", contacto.Nombre)
+		fmt.Printf("Dirección: %s\n", contacto.Direccion)
+		fmt.Printf("E-mail: %s\n", contacto.CorreoElectronico)
+	}
+}
+
+func obtenerContactos() ([]Contacto, error) {
+	var contactos []Contacto
+	db, err := obtenerBaseDeDatos()
+	if err != nil {
+		return nil, err
+	}
+	defer db.Close()
+
+	rows, err := db.Query("SELECT id, nombre, direccion, correo_electronico FROM agenda")
+	if err != nil {
+		return nil, err
+	}
+	defer rows.Close()
+
+	for rows.Next() {
+		var c Contacto
+		err := rows.Scan(&c.Id, &c.Nombre, &c.Direccion, &c.CorreoElectronico)
+		if err != nil {
+			return nil, err
+		}
+		contactos = append(contactos, c)
+	}
+
+	return contactos, nil
+}
+
+func actualizar(c Contacto) error {
+	db, err := obtenerBaseDeDatos()
+	if err != nil {
+		return err
+	}
+	defer db.Close()
+
+	_, err = db.Exec("UPDATE agenda SET nombre = ?, direccion = ?, correo_electronico = ? WHERE id = ?", c.Nombre, c.Direccion, c.CorreoElectronico, c.Id)
+	return err
+}
+
+func eliminar(c Contacto) error {
+	db, err := obtenerBaseDeDatos()
+	if err != nil {
+		return err
+	}
+	defer db.Close()
+
+	_, err = db.Exec("DELETE FROM agenda WHERE id = ?", c.Id)
+	return err
+}
+```
+
 ---
+
+```go
+**CODIGO CRUD COMPLETO**
+
+package main
+
+import (
+	"database/sql"
+	"fmt"
+	_ "github.com/go-sql-driver/mysql"
+	"os"
+)
+
+type Contacto struct {
+	Id               int
+	Nombre           string
+	Direccion        string
+	CorreoElectronico string
+}
+
+func obtenerBaseDeDatos() (*sql.DB, error) {
+	db, err := sql.Open("mysql", "root:@tcp(127.0.0.1:3306)/agenda")
+	if err != nil {
+		return nil, err
+	}
+	return db, nil
+}
+
+func main() {
+	menu := `¿Qué deseas hacer?
+[1] -- Insertar
+[2] -- Mostrar
+[3] -- Actualizar
+[4] -- Eliminar
+[5] -- Salir
+----->	`
+
+	var eleccion int
+	var c Contacto
+
+	for eleccion != 5 {
+		fmt.Println(menu)
+		fmt.Scanln(&eleccion)
+
+		switch eleccion {
+		case 1:
+			c = leerContacto()
+			if err := insertar(c); err != nil {
+				fmt.Printf("Error insertando: %v\n", err)
+			} else {
+				fmt.Println("Insertado correctamente")
+			}
+		case 2:
+			mostrarContactos()
+		case 3:
+			c = leerContacto()
+			if err := actualizar(c); err != nil {
+				fmt.Printf("Error actualizando: %v\n", err)
+			} else {
+				fmt.Println("Actualizado correctamente")
+			}
+		case 4:
+			c = leerID()
+			if err := eliminar(c); err != nil {
+				fmt.Printf("Error eliminando: %v\n", err)
+			} else {
+				fmt.Println("Eliminado correctamente")
+			}
+		}
+	}
+}
+
+func leerContacto() Contacto {
+	var c Contacto
+	fmt.Println("Ingresa el nombre:")
+	fmt.Scanln(&c.Nombre)
+	fmt.Println("Ingresa la dirección:")
+	fmt.Scanln(&c.Direccion)
+	fmt.Println("Ingresa el correo electrónico:")
+	fmt.Scanln(&c.CorreoElectronico)
+	return c
+}
+
+func leerID() Contacto {
+	var c Contacto
+	fmt.Println("Ingresa el ID:")
+	fmt.Scanln(&c.Id)
+	return c
+}
+
+func insertar(c Contacto) error {
+	db, err := obtenerBaseDeDatos()
+	if err != nil {
+		return err
+	}
+	defer db.Close()
+
+	_, err = db.Exec("INSERT INTO agenda (nombre, direccion, correo_electronico) VALUES(?, ?, ?)", c.Nombre, c.Direccion, c.CorreoElectronico)
+	return err
+}
+
+func mostrarContactos() {
+	contactos, err := obtenerContactos()
+	if err != nil {
+		fmt.Printf("Error obteniendo contactos: %v\n", err)
+		return
+	}
+
+	for _, contacto := range contactos {
+		fmt.Println("====================")
+		fmt.Printf("Id: %d\n", contacto.Id)
+		fmt.Printf("Nombre: %s\n", contacto.Nombre)
+		fmt.Printf("Dirección: %s\n", contacto.Direccion)
+		fmt.Printf("E-mail: %s\n", contacto.CorreoElectronico)
+	}
+}
+
+func obtenerContactos() ([]Contacto, error) {
+	var contactos []Contacto
+	db, err := obtenerBaseDeDatos()
+	if err != nil {
+		return nil, err
+	}
+	defer db.Close()
+
+	rows, err := db.Query("SELECT id, nombre, direccion, correo_electronico FROM agenda")
+	if err != nil {
+		return nil, err
+	}
+	defer rows.Close()
+
+	for rows.Next() {
+		var c Contacto
+		err := rows.Scan(&c.Id, &c.Nombre, &c.Direccion, &c.CorreoElectronico)
+		if err != nil {
+			return nil, err
+		}
+		contactos = append(contactos, c)
+	}
+
+	return contactos, nil
+}
+
+func actualizar(c Contacto) error {
+	db, err := obtenerBaseDeDatos()
+	if err != nil {
+		return err
+	}
+	defer db.Close()
+
+	_, err = db.Exec("UPDATE agenda SET nombre = ?, direccion = ?, correo_electronico = ? WHERE id = ?", c.Nombre, c.Direccion, c.CorreoElectronico, c.Id)
+	return err
+}
+
+func eliminar(c Contacto) error {
+	db, err := obtenerBaseDeDatos()
+	if err != nil {
+		return err
+	}
+	defer db.Close()
+
+	_, err = db.Exec("DELETE FROM agenda WHERE id = ?", c.Id)
+	return err
+}
+```
 
